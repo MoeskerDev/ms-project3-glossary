@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/get_terms")
 def get_terms():
     terms = mongo.db.terms.find()
-    return render_template("terms.html", tasks=tasks)
+    return render_template("terms.html", terms=terms)
 
 
 if __name__ == "__main__":
