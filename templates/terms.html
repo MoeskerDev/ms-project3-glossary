@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glossary Grow Fields</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>Testing the extention of the base templates, me!</h2>
+
     {% for term in terms %}
         {{term.field_name}}<br>
         {{term.term_name}}<br>
         {{term.term_definition}}<br>
     {%endfor%}
-</body>
-</html>
+
+{% endblock %}
