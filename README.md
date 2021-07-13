@@ -10,9 +10,12 @@ The final goal is to publish a book including the collection of good definitions
 ----
 ## User Stories
 1. First Time Visitor Goals
-    -
-    -
-    -
+    - As a user, I want to easily understand the main purpose of the site and scroll through all terms.
+    - As a user, I want to easily navigate through the application to find and read terms relating to a specific field.
+    - As a user, I want to be able to add new terms with their respective definition to add to the collection of important terms in the field.
+    - As a user, I want to be able to edit the definition of terms to improve the quality of the site.
+    - As a user, I want to be able to delete certain terms to ensure updated relevancy of the collection of terms.
+    - As a user, I want to be able to see which terms are most frequently searched for.
 
 2. Returning Visitor Goals
     -
@@ -34,7 +37,7 @@ The final goal is to publish a book including the collection of good definitions
 ### Colours
 - 
 ### Styling
-- Cards,
+- 
 
 
 ----
@@ -48,7 +51,7 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - Web application where users can store and easily access definitions for terms regarding three different growing fields in IT.
 - Backend code and frontend forms to allow users to add new definitions, edit them and delete them.
 - Backend code and frontend functionality for users to search for definitions.
-- Cards, dropdown/collapsible/tabs?
+- Dropdown/collapsible/tabs?
 - Alphabetical display of all definitions.
 - Display word cloud?
 
