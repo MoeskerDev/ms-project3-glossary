@@ -18,14 +18,10 @@ The final goal is to publish a book including the collection of good definitions
     - As a user, I want to be able to see which terms are most frequently searched for.
 
 2. Returning Visitor Goals
-    -
-    -
-    -
+    - As a returning user, I want to see which terms are new on the site.
 
 3. Frequent User Goals
-    -
-    -
-    -
+    - 
     
 ----
 ## Design choices
@@ -80,7 +76,8 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - <a href="https://github.com/" target="_blank"> GitHub: </a>
 - <a href="https://heroku.com/" target="_blank"> Heroku: </a>
 - <a href="https://balsamiq.com/" target="_blank"> Balsamiq:</a> 
-
+    - During the design process, the wireframes were created by Balsamiq.
+    
 ----
 # Testing
 
