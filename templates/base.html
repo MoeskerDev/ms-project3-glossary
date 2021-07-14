@@ -30,6 +30,7 @@
           <li><a href="#">Web Development</a></li>
           <li><a href="{{ url_for('register') }}">Register</a></li>
           <li><a href="{{ url_for('login') }}">Login</a></li>
+          <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
           <li><a href="#">Add Term</a></li>
         </ul>
       </div>
@@ -45,6 +46,7 @@
       <li><a href="#">Web Development</a></li>
       <li><a href="{{ url_for('register') }}">Register</a></li>
       <li><a href="{{ url_for('login') }}">Login</a></li>
+      <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
       <li><a href="#">Add Term</a></li>
     </ul>
   </header>
