@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>Testing the extention of the base templates, me!</h2>
 
     {% for term in terms %}
         {{term.field_name}}<br>
         {{term.term_name}}<br>
         {{term.term_definition}}<br>
     {%endfor%}
+
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header teal white-text"><i class="fas fa-caret-down"></i>Term name</div>
+            <div class="collapsible-body"><span>Term definition</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header teal white-text"><i class="fas fa-caret-down"></i>Term name</div>
+            <div class="collapsible-body"><span>Term definition</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header teal white-text"><i class="fas fa-caret-down"></i>Term name</div>
+            <div class="collapsible-body"><span>Term definition</span></div>
+        </li>
+    </ul>
+
 
 {% endblock %}
