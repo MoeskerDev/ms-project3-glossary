@@ -1,21 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Register</h3>
+<h3 class="center-align">Login</h3>
 
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
         <div class="card-panel">
             <!--username-->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-user-circle prefix"></i>
+                    <i class="fas fa-user-check prefix"></i>
                     <input id="username" name="username" type="text" minlength="5" 
                         maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" class="validate" required>
                     <label for="username">Username</label>
                 </div>
             </div>
-            <!--password-->
             <div class="row">
                 <div class="input-field col s12">
                   <i class="fas fa-lock prefix"></i>
@@ -24,10 +23,10 @@
                   <label for="password">Password</label>
                 </div>
             </div>
-            <!--register button-->
+            <!-- login button-->
             <div class="row">
                 <button type="submit" class="col s12 waves-effect waves-teal btn-large offset-m2">
-                    Register <i class="fas fa-sign-in-alt"></i>
+                    Login <i class="fas fa-sign-in-alt"></i>
                 </button>
             </div>
         </div>
@@ -37,11 +36,10 @@
 <div class="row">
     <div class="col s12">
         <p class="center-align">
-            Already Registered? 
-            <a href="{{ url_for('login') }}" class="teal white-text">Login</a>
+            First Time Visitor? 
+            <a href="{{ url_for('register') }}" class="teal white-text">Register Account</a>
         </p>
     </div>
 </div>
-
 
 {% endblock %}
