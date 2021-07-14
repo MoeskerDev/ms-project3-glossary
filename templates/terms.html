@@ -2,25 +2,21 @@
 {% block content %}
 
 
-    {% for term in terms %}
-        {{term.field_name}}<br>
-        {{term.term_name}}<br>
-        {{term.term_definition}}<br>
-    {%endfor%}
-
     <ul class="collapsible">
+        {% for term in terms %}
         <li>
-            <div class="collapsible-header teal white-text"><i class="fas fa-caret-down"></i>Term name</div>
-            <div class="collapsible-body"><span>Term definition</span></div>
+            <div class="collapsible-header teal white-text">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ term.term_name }}</strong>:
+                {% if term.is_new == "on" %}
+                    <span class="new badge tooltipped" data-position="top" data-tooltip="NEW!">2</span>
+                {% endif %}
+            </div>
+            <div class="collapsible-body">
+                <em>{{ term.term_definition }}</em>
+            </div>
         </li>
-        <li>
-            <div class="collapsible-header teal white-text"><i class="fas fa-caret-down"></i>Term name</div>
-            <div class="collapsible-body"><span>Term definition</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header teal white-text"><i class="fas fa-caret-down"></i>Term name</div>
-            <div class="collapsible-body"><span>Term definition</span></div>
-        </li>
+        {% endfor %}
     </ul>
 
 
