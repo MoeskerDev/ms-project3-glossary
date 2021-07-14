@@ -25,6 +25,24 @@ def terms():
     return render_template("terms.html", terms=terms)
 
 
+@app.route("/cyber_security")
+def cyber_security():
+    cyber = list(mongo.db.fields.find())
+    return render_template("cyber_security.html", cyber=cyber)
+
+
+@app.route("/data_analytics")
+def data_analytics():
+    fields = mongo.db.fields.find()
+    return render_template("data_analytics.html", fields=fields)
+
+
+@app.route("/web_development")
+def web_development():
+    fields = mongo.db.fields.find()
+    return render_template("web_development.html", fields=fields)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
