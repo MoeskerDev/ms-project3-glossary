@@ -1,19 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <h3 class="teal white-text center-align">All Terms</h3>
 
     <ul class="collapsible">
         {% for term in terms %}
         <li>
             <div class="collapsible-header teal white-text">
                 <i class="fas fa-caret-down"></i>
-                <strong>{{ term.term_name }}</strong>:
-                {% if term.is_new == "on" %}
+                <strong>{{ term.term_name }}</strong>
+                <!-- {% if term.is_new == "on" %}
                     <span class="new badge tooltipped" data-position="top" data-tooltip="NEW!">2</span>
-                {% endif %}
+                {% endif %} -->
             </div>
             <div class="collapsible-body">
-                <em>{{ term.term_definition }}</em>
+                <strong>{{ term.field_name }}</strong>
+                <p>{{ term.term_name }}:</p>
+                <p>{{ term.term_definition }}</p>
+                <p><em>by: {{ term.created_by }}</em></p>
             </div>
         </li>
         {% endfor %}
