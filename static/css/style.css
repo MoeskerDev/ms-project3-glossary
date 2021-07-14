@@ -2,3 +2,10 @@ body {
     color:teal
 }
 
+.flashes h4 {
+    line-height: 3;
+}
+
+.btn-large {
+    max-width: 66%;
+}
