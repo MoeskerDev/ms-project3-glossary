@@ -2,7 +2,7 @@ body {
     color:teal
 }
 
-.flashes h4 {
+.flashes h4, h3 {
     line-height: 3;
 }
 
