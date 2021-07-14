@@ -93,7 +93,8 @@ def logout():
 
 @app.route("/add_term")
 def add_term():
-    return render_template("add_term.html")
+    fields = mongo.db.fields.find().sort("field_name", 1)
+    return render_template("add_term.html", fields=fields)
 
 
 if __name__ == "__main__":

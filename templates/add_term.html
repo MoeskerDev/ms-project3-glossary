@@ -8,9 +8,21 @@
         <form class="col s12">
             <div class="row">
                 <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix"></i>
+                    <select id="field_name" name="field_name" class="validate" required>
+                        <option value="" disabled selected>Choose field</option>
+                        {% for field in fields %}
+                            <option value="{{ field.field_name }}">{{ field.field_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="field_name">Field Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
                     <i class="fas fa-plus-circle prefix"></i>
-                    <input id="term_name" name="term_name" minlength="2" maxlength="50"
-                        type="text" class="validate" required>
+                    <input id="term_name" name="term_name" minlength="2" 
+                        maxlength="50" type="text" class="validate" required>
                     <label for="term_name">Term Name</label>
                 </div>
             </div>
