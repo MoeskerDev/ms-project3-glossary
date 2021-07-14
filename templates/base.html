@@ -24,7 +24,7 @@
                 <li><a href="#">Cyber Security</a></li>
                 <li><a href="#">Data Analytics</a></li>
                 <li><a href="#">Web Development</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Add Term</a></li>
               </ul>
@@ -32,17 +32,16 @@
         </nav>
         
         <ul class="sidenav teal white-text" id="mobile-demo">
-          <li><h4 class="center-align"></h4>Glossary Grow Fields</li>
+          <li><h4 class="center-align">Glossary Grow Fields</h4></li>
           <li><a href="{{ url_for('get_terms') }}">Home</a></li>
           <li><a href="#">Cyber Security</a></li>
           <li><a href="#">Data Analytics</a></li>
           <li><a href="#">Web Development</a></li>
-          <li><a href="#">Register</a></li>
+          <li><a href="{{ url_for('register') }}">Register</a></li>
           <li><a href="#">Login</a></li>
           <li><a href="#">Add Term</a></li>
         </ul>
     </header>
-    <h1>Test the base template</h1>
 
     {% block content %}
     {% endblock %}
