@@ -11,9 +11,13 @@
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix"></i>
                     <select id="field_name" name="field_name" class="validate" required>
-                        <option value="" disabled selected>Choose field</option>
+                        <option value="" disabled>Choose field</option>
                         {% for field in fields %}
-                            <option value="{{ field.field_name }}">{{ field.field_name }}</option>
+                            {% if field.field_name == term.field_name %}
+                                <option value="{{ field.field_name }}" selected>{{ field.field_name }}</option>
+                            {% else %}
+                                <option value="{{ field.field_name }}">{{ field.field_name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                     <label for="field_name">Field</label>
@@ -24,7 +28,8 @@
                 <div class="input-field col s12">
                     <i class="fas fa-plus-circle prefix"></i>
                     <input id="term_name" name="term_name" minlength="2" 
-                        maxlength="50" type="text" class="validate" required>
+                        maxlength="50" value="{{ term.term_name }}" type="text" 
+                        class="validate" required>
                     <label for="term_name">Term</label>
                 </div>
             </div>
@@ -33,13 +38,19 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pen-square prefix"></i>
                     <textarea id="term_definition" name="term_definition" minlength="5" 
-                        maxlength="200" class="materialize-textarea" required></textarea>
+                        maxlength="500" class="materialize-textarea" required>
+                        {{- term.term_definition -}}
+                    </textarea>
                     <label for="term_definition">Definition</label>
                 </div>
             </div>
             <!--submit button-->
             <div class="row">
                 <div class="col s12 center-align">
+                    <!--cancel button-->
+                    <a href="{{ url_for('terms')}}" class="btn deep-orange accent-2">
+                        Cancel Edit <i class="fas fa-window-close right"></i>
+                    </a>
                     <button class="btn waves-effect" type="submit">
                         Edit Term <i class="fas fa-edit right"></i>
                     </button>
