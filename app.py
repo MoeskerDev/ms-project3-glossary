@@ -114,8 +114,7 @@ def add_term():
             "field_name": request.form.get("field_name"),
             "term_name": request.form.get("term_name"),
             "term_definition": request.form.get("term_definition"),
-            "created_by": session["user"],
-            "date_added": {}
+            "created_by": session["user"]
         }
         mongo.db.terms.insert_one(term)
         flash("Term Successfully Added")

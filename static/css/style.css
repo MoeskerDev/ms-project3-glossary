@@ -9,3 +9,7 @@ body {
 .btn-large {
     max-width: 66%;
 }
+
+.btn-small {
+    margin: 5px;
+}
