@@ -34,19 +34,19 @@ def search():
 
 @app.route("/cyber_security")
 def cyber_security():
-    terms = list(mongo.db.terms.find())
+    terms = list(mongo.db.terms.find({"field_name": "Cyber Security"}))
     return render_template("cyber_security.html", terms=terms)
 
 
 @app.route("/data_analytics")
 def data_analytics():
-    terms = list(mongo.db.terms.find())
+    terms = list(mongo.db.terms.find({"field_name": "Data Analytics"}))
     return render_template("data_analytics.html", terms=terms)
 
 
 @app.route("/web_development")
 def web_development():
-    terms = list(mongo.db.terms.find())
+    terms = list(mongo.db.terms.find({"field_name": "Web Development"}))
     return render_template("web_development.html", terms=terms)
 
 
@@ -107,14 +107,6 @@ def profile(username):
     return render_template("profile.html", username=username)
 
 
-@app.route("/logout")
-def logout():
-    # remove user from session cookies
-    flash("You've been logged out")
-    session.pop("user")
-    return redirect(url_for("login"))
-
-
 @app.route("/add_term", methods=["GET", "POST"])
 def add_term():
     if request.method == "POST":
@@ -154,6 +146,14 @@ def delete_term(term_id):
     mongo.db.terms.remove({"_id": ObjectId(term_id)})
     flash("Term Successfully Deleted")
     return redirect(url_for("terms"))
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You've been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
