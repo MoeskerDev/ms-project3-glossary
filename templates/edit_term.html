@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+   
+    <h3 class="teal white-text center-align">Edit Term</h3>
+    
+    <div class="row" method="POST" action="{{ url_for('edit_term', term_id=term._id) }}">
+        <form class="col s12">
+            <!--field name-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix"></i>
+                    <select id="field_name" name="field_name" class="validate" required>
+                        <option value="" disabled selected>Choose field</option>
+                        {% for field in fields %}
+                            <option value="{{ field.field_name }}">{{ field.field_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="field_name">Field</label>
+                </div>
+            </div>
+            <!--term name-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-plus-circle prefix"></i>
+                    <input id="term_name" name="term_name" minlength="2" 
+                        maxlength="50" type="text" class="validate" required>
+                    <label for="term_name">Term</label>
+                </div>
+            </div>
+            <!--term definition-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pen-square prefix"></i>
+                    <textarea id="term_definition" name="term_definition" minlength="5" 
+                        maxlength="200" class="materialize-textarea" required></textarea>
+                    <label for="term_definition">Definition</label>
+                </div>
+            </div>
+            <!--submit button-->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn waves-effect" type="submit">
+                        Edit Term <i class="fas fa-edit right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
