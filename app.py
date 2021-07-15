@@ -27,20 +27,20 @@ def terms():
 
 @app.route("/cyber_security")
 def cyber_security():
-    cyber = list(mongo.db.fields.find())
-    return render_template("cyber_security.html", cyber=cyber)
+    terms = list(mongo.db.terms.find())
+    return render_template("cyber_security.html", terms=terms)
 
 
 @app.route("/data_analytics")
 def data_analytics():
-    fields = mongo.db.fields.find()
-    return render_template("data_analytics.html", fields=fields)
+    terms = list(mongo.db.terms.find())
+    return render_template("data_analytics.html", terms=terms)
 
 
 @app.route("/web_development")
 def web_development():
-    fields = mongo.db.fields.find()
-    return render_template("web_development.html", fields=fields)
+    terms = list(mongo.db.terms.find())
+    return render_template("web_development.html", terms=terms)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -78,6 +78,7 @@ def login():
                 existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
+
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
