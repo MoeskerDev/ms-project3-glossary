@@ -1,15 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3 class="center-align teal white-text">{{username}}'s Profile</h3>
+
 <div class="row">
-    <div class="col s12 m8 offset-m2">
-        <div class="card-panel teal">
-            <h3 class="center-align teal white-text">{{username}}'s Profile</h3>
+    <div class="col s12">
+        <div class="card-panel grey">
+            <span class="white-text">
+                <!-- Modal Trigger -->
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Term name</a>
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content teal-text">
+                        <h4>Term name</h4>
+                        <p>Term Definition</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="modal-close waves-effect waves-deep-orange accent-2 btn-flat">Edit</a>
+                        <a href="#" class="modal-close waves-effect waves-red btn-flat">Delete</a>
+                    </div>
+                </div>
+            </span>
         </div>
     </div>
 </div>
-<div class="row">
-    Display all tasks created by this user
-</div>
+
+
+
 
 {% endblock %}

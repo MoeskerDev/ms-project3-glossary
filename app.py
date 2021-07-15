@@ -107,9 +107,10 @@ def profile(username):
     # get the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+    terms = list(mongo.db.terms.find({"username": session["user"]}))
+    return render_template("profile.html", terms=terms, username=username)
 
-
+    
 @app.route("/add_term", methods=["GET", "POST"])
 def add_term():
     if request.method == "POST":
@@ -146,6 +147,7 @@ def edit_term(term_id):
 
 @app.route("/delete_term/<term_id>")
 def delete_term(term_id):
+
     mongo.db.terms.remove({"_id": ObjectId(term_id)})
     flash("Term Successfully Deleted")
     return redirect(url_for("terms"))

@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
     $('.tooltipped').tooltip();
     $('select').formSelect();
+    $('.modal').modal();
 
     validateMaterializeSelect();
     function validateMaterializeSelect() {
@@ -37,4 +38,10 @@ $(document).ready(function(){
 var elem = document.querySelector('.collapsible.expandable');
 var instance = M.Collapsible.init(elem, {
   accordion: false
+
 });
+
+var toastHTML = '<span>Are you sure you want to delete this term?</span><button class="btn-flat toast-action">No</button><button class="btn-flat toast-action">Yes</button>';
+  M.toast({html: toastHTML});
+
+
