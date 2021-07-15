@@ -25,6 +25,13 @@ def terms():
     return render_template("terms.html", terms=terms)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    terms = list(mongo.db.terms.find({"$text": {"$search": query}}))
+    return render_template("terms.html", terms=terms)
+
+
 @app.route("/cyber_security")
 def cyber_security():
     terms = list(mongo.db.terms.find())
