@@ -107,9 +107,10 @@ def profile(username):
     # get the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+    terms = list(mongo.db.terms.find({"created_by": session['user']}))
+    return render_template("profile.html", username=username, terms=terms)
 
-    
+
 @app.route("/add_term", methods=["GET", "POST"])
 def add_term():
     if request.method == "POST":

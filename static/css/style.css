@@ -2,6 +2,13 @@ body {
     color:teal
 }
 
+a.edit, a.delete {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .flashes h4, h3 {
     line-height: 3;
 }
