@@ -1,7 +1,8 @@
+# pylint: disable=missing-module-docstring
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, login_required)
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -71,8 +72,9 @@ def register():
     the first check is if the username already exists in the database.
     If so, a message appears and the user is redirected to the register
     page to try again.
-    Otherwise, the user's info, username and password, is inserted into the database,
-    a message appears and the user is redirected to their own profile page.
+    Otherwise, the user's info, username and password,
+    is inserted into the database, a message appears and the user is
+    redirected to their own profile page.
     If the method is get, the register template/page displays.
     """
     if request.method == "POST":
@@ -83,11 +85,11 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        register = {
+        registered = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(registered)
 
         session["user"] = request.form.get("username").lower()
         flash("Successful Registration!")
@@ -110,21 +112,18 @@ def login():
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for(
+              existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for(
                         "profile", username=session["user"]))
-
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
@@ -159,7 +158,6 @@ def add_term():
     Otherwise, all terms are displayed on the add term
     template/page in order of field name.
     """
-    pass
     if request.method == "POST":
         term = {
             "field_name": request.form.get("field_name"),
@@ -178,13 +176,12 @@ def add_term():
 @app.route("/edit_term/<term_id>", methods=["GET", "POST"])
 @login_required
 def edit_term(term_id):
-    """ 
+    """
     If the request method is post, to edit a term, a dictionary with
     three fields from the form and the user logged in, updates the
     corresponding id in the database and a message appears.
     Otherwise,
     """
-    pass
     if request.method == "POST":
         submit = {
             "field_name": request.form.get("field_name"),
@@ -204,10 +201,9 @@ def edit_term(term_id):
 @login_required
 def delete_term(term_id):
     """ Removes the id from the database that corresponds
-    with term id from the url. Then, a message appears and 
+    with term id from the url. Then, a message appears and
     the user is redirected to the terms template/page.
     """
-    pass
     mongo.db.terms.remove({"_id": ObjectId(term_id)})
     flash("Term Successfully Deleted")
     return redirect(url_for("terms"))
