@@ -2,11 +2,15 @@ body {
     color:teal
 }
 
-a.edit, a.delete {
+a.edit, a.delete, a.account {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.sidenav li a {
+    color: white;
 }
 
 .flashes h4, h3 {
