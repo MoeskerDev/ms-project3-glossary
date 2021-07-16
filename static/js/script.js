@@ -41,7 +41,6 @@ var instance = M.Collapsible.init(elem, {
 
 });
 
-var toastHTML = '<span>Are you sure you want to delete this term?</span><button class="btn-flat toast-action">No</button><button class="btn-flat toast-action">Yes</button>';
-  M.toast({html: toastHTML});
+
 
 
