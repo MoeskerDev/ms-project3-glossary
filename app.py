@@ -21,12 +21,18 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/terms")
 def terms():
+    """ Finds all terms from the mongo database
+    and displays them as a list on the terms.html template
+    """
     terms = list(mongo.db.terms.find())
     return render_template("terms.html", terms=terms)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """ Searches for the text inserted in the form search bar in
+    the mongo database and displays it on the terms.hmtl template/page.
+    """
     query = request.form.get("query")
     terms = list(mongo.db.terms.find({"$text": {"$search": query}}))
     return render_template("terms.html", terms=terms)
@@ -34,24 +40,41 @@ def search():
 
 @app.route("/cyber_security")
 def cyber_security():
+    """ Finds all terms that have the Cyber Security field name and
+    display them on the Cyber Security template/page.
+    """
     terms = list(mongo.db.terms.find({"field_name": "Cyber Security"}))
     return render_template("cyber_security.html", terms=terms)
 
 
 @app.route("/data_analytics")
 def data_analytics():
+    """ Finds all terms that have the Data Analytics field name and
+    display them on the Data Analytics template/page.
+    """
     terms = list(mongo.db.terms.find({"field_name": "Data Analytics"}))
     return render_template("data_analytics.html", terms=terms)
 
 
 @app.route("/web_development")
 def web_development():
+    """ Finds all terms that have the Web Development field name and
+    display them on the Web Development template/page.
+    """
     terms = list(mongo.db.terms.find({"field_name": "Web Development"}))
     return render_template("web_development.html", terms=terms)
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """If the method is post, to register, inserting info via the form,
+    the first check is if the username already exists in the database.
+    If so, a message appears and the user is redirected to the register
+    page to try again.
+    Otherwise, the user's info, username and password, is inserted into the database,
+    a message appears and the user is redirected to their own profile page.
+    If the method is get, the register template/page displays.
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -75,6 +98,14 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """If the method is post, to login, first the check if the username
+    already exists in the database. If it does, the check is if
+    the entered password matches the username. If it does,
+    redirects the user to their own profile page.
+    If they do not match, or the username does not exist,
+    a message appears and the user is redirected to the login page.
+    If the method is get, the login template/page displays.
+    """
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -104,6 +135,12 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    """ To get the profile page, first the session
+    user's username is retrieved from the database.
+    Then, a list is created which finds the terms created by
+    the session user, which is set equal to the username and
+    terms display on the profile template/page.
+    """
     # get the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -112,7 +149,16 @@ def profile(username):
 
 
 @app.route("/add_term", methods=["GET", "POST"])
+@login_required
 def add_term():
+    """ If the request is post, to add a term, four
+    different fields, three via the form and one is the
+    logged in user, are inserted as a dictionary into the
+    database. A message appears and the user is redirected
+    to the terms page where all terms are displayed.
+    Otherwise, all terms are displayed on the add term
+    template/page in order of field name.
+    """
     if request.method == "POST":
         term = {
             "field_name": request.form.get("field_name"),
@@ -129,7 +175,13 @@ def add_term():
 
 
 @app.route("/edit_term/<term_id>", methods=["GET", "POST"])
+@login_required
 def edit_term(term_id):
+    """
+    """
+    term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
+    if not term or term['created_by'] != session['user']:
+    return ..render 404.html
     if request.method == "POST":
         submit = {
             "field_name": request.form.get("field_name"),
@@ -146,7 +198,14 @@ def edit_term(term_id):
 
 
 @app.route("/delete_term/<term_id>")
+@login_required
 def delete_term(term_id):
+    """
+    """
+    term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
+    if not term or term['created_by'] != session['user']:
+    return ..render 404.html
+
     mongo.db.terms.remove({"_id": ObjectId(term_id)})
     flash("Term Successfully Deleted")
     return redirect(url_for("terms"))
@@ -154,6 +213,8 @@ def delete_term(term_id):
 
 @app.route("/logout")
 def logout():
+    """
+    """
     # remove user from session cookies
     flash("You've been logged out")
     session.pop("user")
