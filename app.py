@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, login_required)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -159,6 +159,7 @@ def add_term():
     Otherwise, all terms are displayed on the add term
     template/page in order of field name.
     """
+    pass
     if request.method == "POST":
         term = {
             "field_name": request.form.get("field_name"),
@@ -177,11 +178,13 @@ def add_term():
 @app.route("/edit_term/<term_id>", methods=["GET", "POST"])
 @login_required
 def edit_term(term_id):
+    """ 
+    If the request method is post, to edit a term, a dictionary with
+    three fields from the form and the user logged in, updates the
+    corresponding id in the database and a message appears.
+    Otherwise,
     """
-    """
-    term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
-    if not term or term['created_by'] != session['user']:
-    return ..render 404.html
+    pass
     if request.method == "POST":
         submit = {
             "field_name": request.form.get("field_name"),
@@ -200,12 +203,11 @@ def edit_term(term_id):
 @app.route("/delete_term/<term_id>")
 @login_required
 def delete_term(term_id):
+    """ Removes the id from the database that corresponds
+    with term id from the url. Then, a message appears and 
+    the user is redirected to the terms template/page.
     """
-    """
-    term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
-    if not term or term['created_by'] != session['user']:
-    return ..render 404.html
-
+    pass
     mongo.db.terms.remove({"_id": ObjectId(term_id)})
     flash("Term Successfully Deleted")
     return redirect(url_for("terms"))
@@ -213,7 +215,8 @@ def delete_term(term_id):
 
 @app.route("/logout")
 def logout():
-    """
+    """A message, then the user is removed from session
+    cookies and redirected to the login page.
     """
     # remove user from session cookies
     flash("You've been logged out")

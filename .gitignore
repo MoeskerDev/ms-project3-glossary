@@ -6,3 +6,7 @@ __pycache__/
 *.py[cod]
 node_modules/
 .github/
+
+term = mongo.db.terms.find_one({"_id": ObjectId(term_id)}) edit-delete
+    if not term or term['created_by'] != session['user']:
+    return ..render 404.html
