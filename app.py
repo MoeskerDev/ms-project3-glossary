@@ -5,6 +5,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from flask_login import login_required
+from functools import wraps
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -18,6 +19,15 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user" not in session:
+            return redirect(url_for('login', next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 @app.route("/")
@@ -149,6 +159,7 @@ def profile(username):
 
 
 @app.route("/add_term", methods=["GET", "POST"])
+@login_required
 def add_term():
     """ If the request is post, to add a term, four
     different fields, three via the form and one is the
@@ -174,6 +185,7 @@ def add_term():
 
 
 @app.route("/edit_term/<term_id>", methods=["GET", "POST"])
+@login_required
 def edit_term(term_id):
     """
     If the request method is post, to edit a term, a dictionary with
@@ -181,6 +193,10 @@ def edit_term(term_id):
     corresponding id in the database and a message appears.
     Otherwise,
     """
+    term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
+    if not term or term['created_by'] != session['user']:
+        return render_template("404.html")
+
     if request.method == "POST":
         submit = {
             "field_name": request.form.get("field_name"),
@@ -197,11 +213,16 @@ def edit_term(term_id):
 
 
 @app.route("/delete_term/<term_id>")
+@login_required
 def delete_term(term_id):
     """ Removes the id from the database that corresponds
     with term id from the url. Then, a message appears and
     the user is redirected to the terms template/page.
     """
+    term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
+    if not term or term['created_by'] != session['user']:
+        return render_template("404.html")
+
     mongo.db.terms.remove({"_id": ObjectId(term_id)})
     flash("Term Successfully Deleted")
     return redirect(url_for("terms"))
