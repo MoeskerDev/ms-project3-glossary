@@ -1,18 +1,18 @@
 # pylint: disable=missing-module-docstring
 import os
+from functools import wraps
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from flask_login import login_required
-from functools import wraps
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
 
-app = Flask(__name__)
+app = Flask(import_name=__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -21,18 +21,25 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-def login_required(f):
-    @wraps(f)
+def login_required(_f):
+    """This function ensures blocking users from the backend
+    by redirecting the user to the login page if the url would
+    be copied and pasted in another browser or (icognito)tab, meaning
+    that the user would not be in that session.
+    """
+    @wraps(_f)
     def decorated_function(*args, **kwargs):
         if "user" not in session:
             return redirect(url_for('login', next=request.url))
-        return f(*args, **kwargs)
+        return _f(*args, **kwargs)
     return decorated_function
 
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # set the 404 status explicitly
+    """If there is a 404 error in the app, this function
+    returns the created 404.html file specified for 404 errors.
+    """
     return render_template('404.html'), 404
 
 
@@ -42,8 +49,8 @@ def terms():
     """ Finds all terms from the mongo database
     and displays them as a list on the terms.html template
     """
-    terms = list(mongo.db.terms.find())
-    return render_template("terms.html", terms=terms)
+    all_terms = list(mongo.db.terms.find())
+    return render_template("terms.html", terms=all_terms)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -51,9 +58,12 @@ def search():
     """ Searches for the text inserted in the form search bar in
     the mongo database and displays it on the terms.hmtl template/page.
     """
-    query = request.form.get("query")
-    terms = list(mongo.db.terms.find({"$text": {"$search": query}}))
-    return render_template("terms.html", terms=terms)
+    query = request.args.get("query")
+    all_terms = list(mongo.db.terms.find({"$text": {"$search": query}}))
+    #if not terms:
+    #return render_template("404.html")
+    #else:
+    return render_template("terms.html", terms=all_terms)
 
 
 @app.route("/cyber_security")
@@ -61,8 +71,8 @@ def cyber_security():
     """ Finds all terms that have the Cyber Security field name and
     display them on the Cyber Security template/page.
     """
-    terms = list(mongo.db.terms.find({"field_name": "Cyber Security"}))
-    return render_template("cyber_security.html", terms=terms)
+    all_terms = list(mongo.db.terms.find({"field_name": "Cyber Security"}))
+    return render_template("cyber_security.html", terms=all_terms)
 
 
 @app.route("/data_analytics")
@@ -70,8 +80,8 @@ def data_analytics():
     """ Finds all terms that have the Data Analytics field name and
     display them on the Data Analytics template/page.
     """
-    terms = list(mongo.db.terms.find({"field_name": "Data Analytics"}))
-    return render_template("data_analytics.html", terms=terms)
+    all_terms = list(mongo.db.terms.find({"field_name": "Data Analytics"}))
+    return render_template("data_analytics.html", terms=all_terms)
 
 
 @app.route("/web_development")
@@ -79,8 +89,8 @@ def web_development():
     """ Finds all terms that have the Web Development field name and
     display them on the Web Development template/page.
     """
-    terms = list(mongo.db.terms.find({"field_name": "Web Development"}))
-    return render_template("web_development.html", terms=terms)
+    all_terms = list(mongo.db.terms.find({"field_name": "Web Development"}))
+    return render_template("web_development.html", terms=all_terms)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -131,8 +141,7 @@ def login():
             {"username": request.form.get("username").lower()})
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-              existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
@@ -160,8 +169,8 @@ def profile(username):
     # get the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    terms = list(mongo.db.terms.find({"created_by": session['user']}))
-    return render_template("profile.html", username=username, terms=terms)
+    all_terms = list(mongo.db.terms.find({"created_by": session['user']}))
+    return render_template("profile.html", username=username, terms=all_terms)
 
 
 @app.route("/add_term", methods=["GET", "POST"])
@@ -226,7 +235,11 @@ def delete_term(term_id):
     the user is redirected to the terms template/page.
     """
     term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
-    if not term or term['created_by'] != session['user']:
+    if not term:
+        flash("Term already deleted")
+        return redirect(url_for("terms"))
+
+    elif term['created_by'] != session['user']:
         return render_template("404.html")
 
     mongo.db.terms.remove({"_id": ObjectId(term_id)})
