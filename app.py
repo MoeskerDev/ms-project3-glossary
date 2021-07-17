@@ -4,6 +4,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from flask_login import login_required
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -148,7 +149,6 @@ def profile(username):
 
 
 @app.route("/add_term", methods=["GET", "POST"])
-@login_required
 def add_term():
     """ If the request is post, to add a term, four
     different fields, three via the form and one is the
@@ -174,7 +174,6 @@ def add_term():
 
 
 @app.route("/edit_term/<term_id>", methods=["GET", "POST"])
-@login_required
 def edit_term(term_id):
     """
     If the request method is post, to edit a term, a dictionary with
@@ -198,7 +197,6 @@ def edit_term(term_id):
 
 
 @app.route("/delete_term/<term_id>")
-@login_required
 def delete_term(term_id):
     """ Removes the id from the database that corresponds
     with term id from the url. Then, a message appears and
