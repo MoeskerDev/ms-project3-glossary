@@ -60,10 +60,34 @@ def search():
     """
     query = request.args.get("query")
     all_terms = list(mongo.db.terms.find({"$text": {"$search": query}}))
-    #if not terms:
-    #return render_template("404.html")
-    #else:
+    # if not all_terms:
+    # return render_template("404.html")
+    # else:
     return render_template("terms.html", terms=all_terms)
+
+
+def searchByField():
+    field = {}  # query params url flask
+    fieldName = None
+    if field == "CS":
+        fieldName = "Cyber Security"
+    terms = list(mongo.db.terms.find({"field_name": fieldName}))
+    templateToRender = None
+    if fieldName == 'CS'
+    templateToRender = "cyber_security.html"
+    if field == "DA":
+        fieldName = "Data Analytics"
+    terms = list(mongo.db.terms.find({"field_name": fieldName}))
+    templateToRender = None
+    if fieldName == "Data Analytics":
+        templateToRender = "data_analytics.html"
+    if field == "WD":
+        fieldName = "Web Development"
+    terms = list(mongo.db.terms.find({"field_name": fieldName}))
+    templateToRender = None
+    if fieldName == "Web Development"
+    templateToRender = "web_development.html"
+    return render_template(templateToRender, terms=terms)
 
 
 @app.route("/cyber_security")
@@ -141,7 +165,8 @@ def login():
             {"username": request.form.get("username").lower()})
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(existing_user["password"], request.form.get("password")):
+            if check_password_hash(
+              existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
