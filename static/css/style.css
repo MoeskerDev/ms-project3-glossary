@@ -24,3 +24,39 @@ a.edit, a.delete, a.account {
 .btn-small {
     margin: 5px;
 }
+
+/*------------------------------------------------Media Queries-----------------*/
+/*-----
+// Medium devices (Ipad, 768px)
+-----*/
+@media screen and (width: 768px) {
+    a.reset {
+        margin-bottom: 10px;
+    }
+
+    div.collapsible-body {
+        padding-bottom: 0px;
+    }
+
+    div.card-content.white-text {
+        padding-bottom: 10px;
+    }
+@media screen and (width: 320px) {
+    
+    
+    div.collapsible-body {
+        padding-bottom: 0px;
+    }
+
+    div.card-action {
+        padding-top: 0px;
+    }
+
+    a.btn.deep-orange.accent-2 {
+        margin-bottom: 10px;
+    }
+
+    .flashes h4, h3 {
+        line-height: 1.5;
+    }
+}
