@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!--Template for Web Development page-->
     <h3 class="teal white-text center-align">Terms in Web Development</h3>
-
+<!--Terms are displayed in cards with title is term name and content is term definition
+and user who created the term. Only if a user is logged in and was the creator of the 
+term, a user is able to either edit or delete a term-->
     <div class="row">
         {% for term in terms %}
         <div class="col s12 m6">
@@ -26,5 +28,5 @@
         </div>
         {% endfor %}
     </div>
-
+    
 {% endblock %}

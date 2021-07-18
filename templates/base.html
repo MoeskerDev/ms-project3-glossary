@@ -1,6 +1,7 @@
+<!--Base template-->
 <!DOCTYPE html>
 <html lang="en">
-
+<!--head with meta data, font-awesome, Materialize css, custom css and favicon links-->
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,15 +15,16 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='css/images/apple-touch-icon.png') }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='css/images/favicon-32x32.png') }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='css/images/favicon-16x16.png') }}">
+  <title>Glossary Grow Fields</title>
   {% block styles %}
   {% endblock %}
-  <title>Glossary Grow Fields</title>
+
 </head>
 
 <body>
 
   <header>
-    <!--navbar-->
+  <!--navbar, where the first and last two links are visable for all, but other three only for logged in users -->
     <nav>
       <div class="nav-wrapper deep-orange darken-4">
         <a href="{{ url_for('terms') }}" class="brand-logo right">Glossary Grow Fields</a>
@@ -43,7 +45,7 @@
         </ul>
       </div>
     </nav>
-<!--sidenavbar-->
+<!--sidenavbar; see navbar-->
     <ul class="sidenav red teal-text" id="mobile-demo">
       <li>
         <h4 class="center-align">Glossary Grow Fields</h4>
@@ -62,7 +64,7 @@
       {% endif %}
     </ul>
   </header>
-
+<!--with flash messages, if there are messages, for each message, styling-->
   <section>
     <!--Flash messages-->
       {% with messages = get_flashed_messages() %}
@@ -75,12 +77,12 @@
         {% endif %}
       {% endwith %}
   </section>
-
+<!--The content block resides in a container class-->
   <main class="container">
     {% block content %}
     {% endblock %}
   </main>
-
+<!--scripts-->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

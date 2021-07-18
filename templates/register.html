@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!--Template of the register page-->
 <h3 class="center-align">Register</h3>
-
+<!--form with username field, password field and button-->
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
         <div class="card-panel">
@@ -33,7 +33,7 @@
         </div>
     </form>
 </div>
-
+<!--Redirection with link if user is already registered and should login instead-->
 <div class="row">
     <div class="col s12">
         <p class="center-align">
@@ -42,6 +42,5 @@
         </p>
     </div>
 </div>
-
 
 {% endblock %}

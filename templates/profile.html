@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!--Template of the profile page where logged in user is redirected to after logging in-->
 <h3 class="center-align teal white-text">{{username}}'s Profile</h3>
 
 <h4 class="center-align teal-text">Terms you've added:</h4>
-
+<!--Terms only appear if the session user created certain terms. If
+the logged in user did not create any terms a message appears-->
 <div class="row">
     <div class="col s12">
       <div class="card-panel grey">
@@ -13,10 +14,12 @@
             {% for term in terms %}
                 {% if session.user|lower == term.created_by|lower %}
                 <li>
+                    <!--header with term name-->
                     <div class="collapsible-header teal white-text">
                         <i class="fas fa-caret-down"></i>
                         <strong>{{ term.term_name }}</strong>
                     </div>
+                    <!--body with field name, term name, term definition and username of creator-->
                     <div class="collapsible-body white-text">
                         <strong>{{ term.field_name }}</strong>
                         <p class="red-text">
@@ -25,10 +28,12 @@
                         <p>{{ term.term_definition }}</p>
                         <p><em>by: {{ term.created_by }}</em></p>
                         <div class="row">
+                            <!--edit button-->
                             <div class="col s6">
                                 <a href="{{ url_for('edit_term', term_id=term._id) }}"
                                     class="btn-small left deep-orange accent-1">Edit</a>
                             </div>
+                            <!--delete button-->
                             <div class="col s6">
                                 <a href="{{ url_for('delete_term', term_id=term._id) }}"
                                     class="btn-small left deep-orange darken-4">Delete</a>
@@ -38,6 +43,7 @@
                 </li>
                 {% endif %}
             {% endfor %}
+        <!--message if there are no terms to display-->
         {% else %}
             <h3 class="center-align red-text">You've Added No Terms</h3>
         {% endif %}
@@ -45,7 +51,5 @@
       </div>
     </div>
 </div>
-       
-
 
 {% endblock %}

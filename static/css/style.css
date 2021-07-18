@@ -41,10 +41,8 @@ a.edit, a.delete, a.account {
     div.card-content.white-text {
         padding-bottom: 10px;
     }
-@media screen and (width: 320px) {
-    
-    
-    div.collapsible-body {
+@media screen and (width: 375px) {
+    div.collapsible-body.white-text {
         padding-bottom: 0px;
     }
 
@@ -52,11 +50,11 @@ a.edit, a.delete, a.account {
         padding-top: 0px;
     }
 
-    a.btn.deep-orange.accent-2 {
+    a.reset {
         margin-bottom: 10px;
     }
 
     .flashes h4, h3 {
         line-height: 1.5;
     }
-}
+}}
