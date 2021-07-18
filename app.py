@@ -4,7 +4,6 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-from flask_login import login_required
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -58,21 +57,21 @@ def search():
     """ Searches for the text inserted in the form search bar in
     the mongo database and displays it on the terms.hmtl template/page.
     """
-    dict = {'CS':{'name': 'Cyber Security',
-            'template': 'cyber_security.html'},
-            'DA':{'name': 'Data Analytics',
-            'template': 'data_analytics.html'},
-            'WD': {'name': 'Web Development',
-            'template': 'web_development.html'}}
+    dicty = {'CS': {'name': 'Cyber Security', 'template': 'cyber_security.html'},
+                'DA': {'name': 'Data Analytics',
+                'template': 'data_analytics.html'},
+                'WD': {'name': 'Web Development',
+                'template': 'web_development.html'}}
 
     to_search = request.args.get("search", "name").lower()
-    if to_search == dict.keys():
-        response = "{'template'}".format(to_search)
-    return response
+    if to_search == dicty.keys():
+        response = "{}".format(to_search)
+        return response
 
     query = request.args.get("query")
     all_terms = list(mongo.db.terms.find({"$text": {"$search": query}}))
     return render_template("terms.html", terms=all_terms)
+
 
 def search_by_field():
     """Search by field name and be redirected
@@ -89,7 +88,8 @@ def cyber_security():
     """ Finds all terms that have the Cyber Security field name and
     display them on the Cyber Security template/page.
     """
-    all_terms = list(mongo.db.terms.find({"field_name": "Cyber Security"}).sort("term_name", 1))
+    all_terms = list(mongo.db.terms.find(
+        {"field_name": "Cyber Security"}).sort("term_name", 1))
     return render_template("cyber_security.html", terms=all_terms)
 
 
@@ -98,7 +98,8 @@ def data_analytics():
     """ Finds all terms that have the Data Analytics field name and
     display them on the Data Analytics template/page.
     """
-    all_terms = list(mongo.db.terms.find({"field_name": "Data Analytics"}).sort("term_name", 1))
+    all_terms = list(mongo.db.terms.find(
+        {"field_name": "Data Analytics"}).sort("term_name", 1))
     return render_template("data_analytics.html", terms=all_terms)
 
 
@@ -107,7 +108,8 @@ def web_development():
     """ Finds all terms that have the Web Development field name and
     display them on the Web Development template/page.
     """
-    all_terms = list(mongo.db.terms.find({"field_name": "Web Development"}).sort("term_name", 1))
+    all_terms = list(mongo.db.terms.find(
+        {"field_name": "Web Development"}).sort("term_name", 1))
     return render_template("web_development.html", terms=all_terms)
 
 
@@ -165,14 +167,14 @@ def login():
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
                         "profile", username=session["user"]))
-            else:
-                # invalid password match
-                flash("Incorrect Username and/or Password")
-                return redirect(url_for("login"))
-        else:
-            # username doesn't exist
+
+            # invalid password match
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
+
+        # username doesn't exist
+        flash("Incorrect Username and/or Password")
+        return redirect(url_for("login"))
 
     return render_template("login.html")
 
@@ -188,7 +190,8 @@ def profile(username):
     # get the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    all_terms = list(mongo.db.terms.find({"created_by": session['user']}).sort("term_name", 1))
+    all_terms = list(mongo.db.terms.find(
+        {"created_by": session['user']}).sort("term_name", 1))
     return render_template("profile.html", username=username, terms=all_terms)
 
 
