@@ -49,7 +49,8 @@ def terms():
     """ Finds all terms from the mongo database
     and displays them as a list on the terms.html template
     """
-    all_terms = list(mongo.db.terms.find())
+    
+    all_terms = list(mongo.db.terms.find().sort("term_name", 1))
     return render_template("terms.html", terms=all_terms)
 
 
@@ -58,44 +59,36 @@ def search():
     """ Searches for the text inserted in the form search bar in
     the mongo database and displays it on the terms.hmtl template/page.
     """
+    dict = {'CS':{'name': 'Cyber Security',
+            'template': 'cyber_security.html'},
+            'DA':{'name': 'Data Analytics',
+            'template': 'data_analytics.html'},
+            'WD': {'name': 'Web Development', 
+            'template': 'web_development.html'}}
+    
+    to_search = request.args.get("search", "name").lower()
+    if to_search == dict.keys():
+        response = "{'template'}".format(to_search)
+    return response
+
     query = request.args.get("query")
     all_terms = list(mongo.db.terms.find({"$text": {"$search": query}}))
-    # if not all_terms:
-    # return render_template("404.html")
-    # else:
     return render_template("terms.html", terms=all_terms)
 
-
-def searchByField():
+def search_by_field():
+    
     field = {}  # query params url flask
-    fieldName = None
-    if field == "CS":
-        fieldName = "Cyber Security"
-    terms = list(mongo.db.terms.find({"field_name": fieldName}))
-    templateToRender = None
-    if fieldName == 'CS'
-    templateToRender = "cyber_security.html"
-    if field == "DA":
-        fieldName = "Data Analytics"
-    terms = list(mongo.db.terms.find({"field_name": fieldName}))
-    templateToRender = None
-    if fieldName == "Data Analytics":
-        templateToRender = "data_analytics.html"
-    if field == "WD":
-        fieldName = "Web Development"
-    terms = list(mongo.db.terms.find({"field_name": fieldName}))
-    templateToRender = None
-    if fieldName == "Web Development"
-    templateToRender = "web_development.html"
-    return render_template(templateToRender, terms=terms)
-
+    field_details = dict.get(field)
+    list(mongo.db.terms.find({"field_name": field_details.name}))
+    return render_template(field_details.template)
+       
 
 @app.route("/cyber_security")
 def cyber_security():
     """ Finds all terms that have the Cyber Security field name and
     display them on the Cyber Security template/page.
     """
-    all_terms = list(mongo.db.terms.find({"field_name": "Cyber Security"}))
+    all_terms = list(mongo.db.terms.find({"field_name": "Cyber Security"}).sort("term_name", 1))
     return render_template("cyber_security.html", terms=all_terms)
 
 
@@ -104,7 +97,7 @@ def data_analytics():
     """ Finds all terms that have the Data Analytics field name and
     display them on the Data Analytics template/page.
     """
-    all_terms = list(mongo.db.terms.find({"field_name": "Data Analytics"}))
+    all_terms = list(mongo.db.terms.find({"field_name": "Data Analytics"}).sort("term_name", 1))
     return render_template("data_analytics.html", terms=all_terms)
 
 
@@ -113,7 +106,7 @@ def web_development():
     """ Finds all terms that have the Web Development field name and
     display them on the Web Development template/page.
     """
-    all_terms = list(mongo.db.terms.find({"field_name": "Web Development"}))
+    all_terms = list(mongo.db.terms.find({"field_name": "Web Development"}).sort("term_name", 1))
     return render_template("web_development.html", terms=all_terms)
 
 
@@ -194,7 +187,7 @@ def profile(username):
     # get the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    all_terms = list(mongo.db.terms.find({"created_by": session['user']}))
+    all_terms = list(mongo.db.terms.find({"created_by": session['user']}).sort("term_name", 1))
     return render_template("profile.html", username=username, terms=all_terms)
 
 
