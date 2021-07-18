@@ -38,7 +38,8 @@ def page_not_found(e):
     """If there is a 404 error in the app, this function
     returns the created 404.html file specified for 404 errors.
     """
-    return render_template('404.html'), 404
+    print(e)
+    return render_template('404.html', e=e), 404
 
 
 @app.route("/")
