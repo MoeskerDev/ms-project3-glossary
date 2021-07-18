@@ -26,12 +26,11 @@ The final goal is to publish a book including the collection of good definitions
 ----
 ## Design choices
 ### Fonts
-- 
-- 
+- Materialize uses Roboto font 
 ### Icons
 - All icons have the purpose to add or explicitly visually show the purpose of the related elements.
 ### Colours
-- 
+- The colour scheme is based on the Materialize orange
 ### Styling
 - 
 
@@ -45,16 +44,17 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 # Features
 ## Existing Features
 - Web application where users can store and easily access definitions for terms regarding three different growing fields in IT.
-- Backend code and frontend forms to allow users to add new definitions, edit them and delete them.
-- Backend code and frontend functionality for users to search for definitions.
-- Dropdown/collapsible/tabs?
-- Alphabetical display of all definitions.
-- Display word cloud?
+- Backend code and frontend forms to allow logged-in users to add new definitions, edit them and delete them.
+- Backend code and frontend functionality for all users to search for terms.
+- A dropdown list and accordion element.
+- Alphabetical display of all terms on all pages.
+- Created my own 404 error page.
+- 
 
 ----
 ## Left to implement
--
--
+- word cloud
+-   
 -
 
 ----
@@ -66,15 +66,17 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank"> Python </a>
 ## External libraries and frameworks
 - <a href="https://en.wikipedia.org/wiki/Flask_(web_framework)" target="_blank"> Flask: </a>
+    - Mini-framework used to create
 - <a href="https://www.mongodb.com/" target="_blank"> MongoDB: </a>
+    - Used to create and store my database.
 - <a href="https://materializecss.com/" target="_blank"> Materialize 1.0.0: </a>
 - <a href="https://fontawesome.com/" target="_blank"> Font Awesome: </a>
-- <a href="https://en.wikipedia.org/wiki/Urban_Dictionary" target="_blank"> Urban Dictionary: ? </a> 
-- <a href="https://jquery.com/" target="_blank"> jQuery: ? </a>
-- <a href="https://fonts.google.com/" target="_blank"> Google Fonts: </a>
+- <a href="https://jquery.com/" target="_blank"> jQuery:  </a>
+    - To support features and functions of Materialize.
 - <a href="https://git-scm.com/" target="_blank"> Git: </a>
 - <a href="https://github.com/" target="_blank"> GitHub: </a>
 - <a href="https://heroku.com/" target="_blank"> Heroku: </a>
+    - Used to deploy this full stack web application to a Cloud platform.
 - <a href="https://balsamiq.com/" target="_blank"> Balsamiq:</a> 
     - During the design process, the wireframes were created by Balsamiq.
     

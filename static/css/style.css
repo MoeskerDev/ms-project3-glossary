@@ -1,7 +1,7 @@
 body {
     color:teal
 }
-
+/*makes links buttons more like the buttons from Materialize*/
 a.edit, a.delete, a.account {
     padding-left: 10px;
     padding-right: 10px;

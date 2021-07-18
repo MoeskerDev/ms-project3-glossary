@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.modal').modal();
 
-//Copied from the mini-project  
+//Copied from the mini-project, 
     validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 
 var elem = document.querySelector('.collapsible.expandable');
-var instance = M.Collapsible.init(elem, {
+M.Collapsible.init(elem, {
   accordion: false
 });
 
