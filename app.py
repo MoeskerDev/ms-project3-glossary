@@ -1,4 +1,3 @@
-# pylint: disable=missing-module-docstring
 import os
 from functools import wraps
 from flask import (
@@ -21,17 +20,17 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-def login_required(_f):
+def login_required(func):
     """This function ensures blocking users from the backend
     by redirecting the user to the login page if the url would
     be copied and pasted in another browser or (icognito)tab, meaning
     that the user would not be in that session.
     """
-    @wraps(_f)
+    @wraps(func)
     def decorated_function(*args, **kwargs):
         if "user" not in session:
             return redirect(url_for('login', next=request.url))
-        return _f(*args, **kwargs)
+        return func(*args, **kwargs)
     return decorated_function
 
 
@@ -49,7 +48,7 @@ def terms():
     """ Finds all terms from the mongo database
     and displays them as a list on the terms.html template
     """
-    
+
     all_terms = list(mongo.db.terms.find().sort("term_name", 1))
     return render_template("terms.html", terms=all_terms)
 
@@ -63,9 +62,9 @@ def search():
             'template': 'cyber_security.html'},
             'DA':{'name': 'Data Analytics',
             'template': 'data_analytics.html'},
-            'WD': {'name': 'Web Development', 
+            'WD': {'name': 'Web Development',
             'template': 'web_development.html'}}
-    
+
     to_search = request.args.get("search", "name").lower()
     if to_search == dict.keys():
         response = "{'template'}".format(to_search)
@@ -76,12 +75,14 @@ def search():
     return render_template("terms.html", terms=all_terms)
 
 def search_by_field():
-    
+    """Search by field name and be redirected
+    to that page.
+    """
     field = {}  # query params url flask
     field_details = dict.get(field)
     list(mongo.db.terms.find({"field_name": field_details.name}))
     return render_template(field_details.template)
-       
+
 
 @app.route("/cyber_security")
 def cyber_security():
