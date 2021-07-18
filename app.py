@@ -65,8 +65,7 @@ def search():
 
 @app.route("/search_by_field/<to_search>", methods=["GET", "POST"])
 def search_by_field(to_search):
-    '''Search by field name and be redirected
-    to that page.
+    '''Search by field name and be redirected to that page.
     '''
     dicty = {'CS': {'name': 'Cyber Security',
                     'template': 'cyber_security.html'},
@@ -85,34 +84,34 @@ def search_by_field(to_search):
     return render_template(search_dict['template'], terms=all_terms)
 
 
-@app.route("/cyber_security")
-def cyber_security():
-    '''Finds all terms that have the Cyber Security field name and
-    display them on the Cyber Security template/page.
-    '''
-    all_terms = list(mongo.db.terms.find(
-        {"field_name": "Cyber Security"}).sort("term_name", 1))
-    return render_template("cyber_security.html", terms=all_terms)
+# @app.route("/cyber_security")
+# def cyber_security():
+#     '''Finds all terms that have the Cyber Security field name and
+#     display them on the Cyber Security template/page.
+#     '''
+#     all_terms = list(mongo.db.terms.find(
+#         {"field_name": "Cyber Security"}).sort("term_name", 1))
+#     return render_template("cyber_security.html", terms=all_terms)
 
 
-@app.route("/data_analytics")
-def data_analytics():
-    '''Finds all terms that have the Data Analytics field name and
-    display them on the Data Analytics template/page.
-    '''
-    all_terms = list(mongo.db.terms.find(
-        {"field_name": "Data Analytics"}).sort("term_name", 1))
-    return render_template("data_analytics.html", terms=all_terms)
+# @app.route("/data_analytics")
+# def data_analytics():
+#     '''Finds all terms that have the Data Analytics field name and
+#     display them on the Data Analytics template/page.
+#     '''
+#     all_terms = list(mongo.db.terms.find(
+#         {"field_name": "Data Analytics"}).sort("term_name", 1))
+#     return render_template("data_analytics.html", terms=all_terms)
 
 
-@app.route("/web_development")
-def web_development():
-    '''Finds all terms that have the Web Development field name and
-    display them on the Web Development template/page.
-    '''
-    all_terms = list(mongo.db.terms.find(
-        {"field_name": "Web Development"}).sort("term_name", 1))
-    return render_template("web_development.html", terms=all_terms)
+# @app.route("/web_development")
+# def web_development():
+#     '''Finds all terms that have the Web Development field name and
+#     display them on the Web Development template/page.
+#     '''
+#     all_terms = list(mongo.db.terms.find(
+#         {"field_name": "Web Development"}).sort("term_name", 1))
+#     return render_template("web_development.html", terms=all_terms)
 
 
 @app.route("/register", methods=["GET", "POST"])
