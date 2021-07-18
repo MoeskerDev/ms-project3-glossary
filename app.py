@@ -261,7 +261,7 @@ def delete_term(term_id):
         flash("Term already deleted")
         return redirect(url_for("terms"))
 
-    elif term['created_by'] != session['user']:
+    if term['created_by'] != session['user']:
         return render_template("404.html")
 
     mongo.db.terms.remove({"_id": ObjectId(term_id)})
