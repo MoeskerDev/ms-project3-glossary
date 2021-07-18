@@ -59,11 +59,11 @@ def search():
     the mongo database and displays it on the terms.hmtl template/page.
     """
     dicty = {'CS': {'name': 'Cyber Security',
-                'template': 'cyber_security.html'},
-                'DA': {'name': 'Data Analytics',
-                'template': 'data_analytics.html'},
-                'WD': {'name': 'Web Development',
-                'template': 'web_development.html'}}
+                    'template': 'cyber_security.html'},
+             'DA': {'name': 'Data Analytics',
+                    'template': 'data_analytics.html'},
+             'WD': {'name': 'Web Development',
+                    'template': 'web_development.html'}}
 
     to_search = request.args.get("search", "name").lower()
     if to_search == dicty.keys():
