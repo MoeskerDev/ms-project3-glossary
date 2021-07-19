@@ -62,10 +62,8 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - Backend code and frontend functionality for all users to search for terms.
 - A dropdown list and accordion element.
 - Created my own 404 error page.
-- Responsive for the following screen sizes:
+- Responsive for all sizes:
     - 
-    - Ipad 768X1024
-    - Mobile
 
 ----
 ## Left to implement

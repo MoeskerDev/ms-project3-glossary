@@ -38,57 +38,6 @@ a.edit, a.delete, a.account {
 /*-----
 // Medium devices (Ipad, 768px)
 -----*/
-@media screen and (width: 414px) {
-    button.btn.teal.darken-1 {
-    margin-top: 10px;
-    }
-}
-
-@media screen and (width: 411px) {
-    button.btn.teal.darken-1 {
-    margin-top: 10px;
-    }
-}
-
-@media screen and (width: 375px) {
-    button.btn.teal.darken-1 {
-    margin-top: 10px;
-    }
-}
-
-@media screen and (width: 360px) {
-    button.btn.teal.darken-1 {
-    margin-top: 10px;
-    }
-
-    button.btn.teal.darken-1 {
-        padding-left: 0px;
-        padding-right: 0px;
-        }
-}
-
-@media screen and (width: 320px) {
-    button.btn.teal.darken-1 {
-    margin-top: 10px;
-    }
-
-    button.btn.teal.darken-1 {
-    padding-left: 0px;
-    padding-right: 0px;
-    }
-                      
-
-@media screen and (width: 280px) {
-    button.btn.teal.darken-1 {
-    margin-top: 10px;
-    }
-
-    button.btn.teal.darken-1 {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-}
-
 @media screen and (width: 768px) {
     a.reset {
         margin-bottom: 10px;
@@ -101,10 +50,6 @@ a.edit, a.delete, a.account {
     div.card-content.white-text {
         padding-bottom: 10px;
     }
-@media screen and (width: 375px) {
-    div.collapsible-body.white-text {
-        padding-bottom: 0px;
-    }
 
     div.card-action {
         padding-top: 0px;
@@ -116,7 +61,62 @@ a.edit, a.delete, a.account {
 
     .flashes h4, h3 {
         line-height: 1.5;
+    }      
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
+    }
+}
+@media screen and (width: 414px) {
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (width: 411px) {
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (width: 375px) {
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
+    }
+    div.collapsible-body.white-text {
+        padding-bottom: 0px;
+    }
+}
+
+@media screen and (width: 360px) {
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
     }
 
-                   
+    button.btn.teal.darken-1 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
+
+@media screen and (width: 320px) {
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    i.fas.fa-search.left {
+    margin-right: 10px;
+    }
+                    
+@media screen and (width: 280px) {
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    i.fas.fa-search.left {
+        margin-right: 10px;
+        }
+}}
