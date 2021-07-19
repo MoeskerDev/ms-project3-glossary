@@ -30,10 +30,65 @@ a.edit, a.delete, a.account {
     color: #bf360c;
 }
 
+#login, #register {
+    padding-left: 30%;
+}
+
 /*------------------------------------------------Media Queries-----------------*/
 /*-----
 // Medium devices (Ipad, 768px)
 -----*/
+@media screen and (width: 414px) {
+    button.btn.teal.darken-1 {
+    margin-top: 10px;
+    }
+}
+
+@media screen and (width: 411px) {
+    button.btn.teal.darken-1 {
+    margin-top: 10px;
+    }
+}
+
+@media screen and (width: 375px) {
+    button.btn.teal.darken-1 {
+    margin-top: 10px;
+    }
+}
+
+@media screen and (width: 360px) {
+    button.btn.teal.darken-1 {
+    margin-top: 10px;
+    }
+
+    button.btn.teal.darken-1 {
+        padding-left: 0px;
+        padding-right: 0px;
+        }
+}
+
+@media screen and (width: 320px) {
+    button.btn.teal.darken-1 {
+    margin-top: 10px;
+    }
+
+    button.btn.teal.darken-1 {
+    padding-left: 0px;
+    padding-right: 0px;
+    }
+                      
+
+@media screen and (width: 280px) {
+    button.btn.teal.darken-1 {
+    margin-top: 10px;
+    }
+
+    button.btn.teal.darken-1 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
 @media screen and (width: 768px) {
     a.reset {
         margin-bottom: 10px;
@@ -62,4 +117,6 @@ a.edit, a.delete, a.account {
     .flashes h4, h3 {
         line-height: 1.5;
     }
-}}
+
+                   
+}
