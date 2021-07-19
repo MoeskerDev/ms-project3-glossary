@@ -1,3 +1,4 @@
+//jQuery imports to support Materialize features
 $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
@@ -5,7 +6,12 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.modal').modal();
 
-//Copied from the mini-project, 
+    var elem = document.querySelector('.collapsible.expandable');
+    M.Collapsible.init(elem, {
+      accordion: false
+    });
+
+//copied from the mini-project; custom validation since required attribute does not work on unordered lists
     validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
@@ -33,12 +39,4 @@ $(document).ready(function(){
             }
         });
     }
-  });
-
-
-var elem = document.querySelector('.collapsible.expandable');
-M.Collapsible.init(elem, {
-  accordion: false
 });
-
-

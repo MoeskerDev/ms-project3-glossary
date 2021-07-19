@@ -9,7 +9,7 @@ the logged in user did not create any terms a message appears-->
 <div class="row">
     <div class="col s12">
       <div class="card-panel grey">
-        <ul class="collapsible">
+        <ul class="collapsible expandable">
         {% if terms|length > 0 %}
             {% for term in terms %}
                 {% if session.user|lower == term.created_by|lower %}
