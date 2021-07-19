@@ -30,14 +30,17 @@ The final goal is to publish a book including the collection of good definitions
 ### Icons
 - All icons have the purpose to add or explicitly visually show the purpose of the related elements.
 ### Colours
-- The colour scheme is based on the following Materialize colours:
-    - teal for the headers, collapsible headers, card-titles, forms, flash messages and text.
-    - teal darken-1 for the 'submit' buttons
-    - deep-orange darken-4 to make the navbar stand out and for the delete buttons
-    - deep-orange accent-1 for the edit buttons
-    - deep-orange for the reset and return back to homepage buttons
-    - grey and blue-grey darken-1 for the card panels
-    - white text in the sidenavbar, grey and blue-grey darken-1 card panels to make links and text stand out, 
+In essence, the idea was to keep it clean, but still play with a few colours that are not a total mismatch.
+- The colour scheme is based on the following colours from Materialize:
+    - #009688 teal for the headers, collapsible headers, card-titles, forms, flash messages and text.
+    - #00897b teal darken-1 for the 'submit' buttons
+    - #fbe9e7 deep-orange lighten-5 for the overall background colour
+    - #bf360c deep-orange darken-4 to make the navbar stand out and for the delete buttons
+    - #ff9e80 deep-orange accent-1 for the edit buttons
+    - #ff5722 deep-orange for the reset and return back to homepage buttons
+    - #9e9e9e grey and #546e7a blue-grey darken-1 for the card panels
+    - #ffffff white text in the sidenavbar, grey and blue-grey darken-1 card panels to make links and text stand out.
+
 ### Styling
 - 
 

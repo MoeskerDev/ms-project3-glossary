@@ -7,10 +7,10 @@
         <form action="{{ url_for('search') }}" method="GET" class="col s12">
             <!--search field-->
             <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
+                <div class="input-field col s12 m8 white">
                     <i class="fas fa-search prefix"></i>
                     <input type="text" name="query" id="query" minlength="2" class="validate" required>
-                    <label for="query">Search Terms</label>
+                    <label for="query" class="teal-text">Search Terms</label>
                 </div>
                 <div class="col s12 m4">
                     <!--reset button-->
@@ -36,7 +36,7 @@
             <!--body with field name, term name, term definition and username of creator of that term-->
             <div class="collapsible-body">
                 <strong>{{ term.field_name }}</strong>
-                <p class="red-text">
+                <p class="term-card">
                     <strong>{{ term.term_name }}:</strong>
                 </p>
                 <p>{{ term.term_definition }}</p>

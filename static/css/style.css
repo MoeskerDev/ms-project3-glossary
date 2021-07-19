@@ -1,4 +1,5 @@
 body {
+    background-color: #fbe9e7;
     color:teal
 }
 /*makes links buttons more like the buttons from Materialize*/
@@ -23,6 +24,10 @@ a.edit, a.delete, a.account {
 
 .btn-small {
     margin: 5px;
+}
+
+.term-card {
+    color: #bf360c;
 }
 
 /*------------------------------------------------Media Queries-----------------*/
