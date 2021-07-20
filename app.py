@@ -24,7 +24,7 @@ def login_required(func):
     '''This function ensures blocking users from the backend
     by redirecting the user to the login page if the url would
     be copied and pasted in another browser or (icognito)tab, meaning
-    that the user would not be in that session.
+    that if the user would not be in that session the user has no access.
     '''
     @wraps(func)
     def decorated_function(*args, **kwargs):
@@ -40,14 +40,14 @@ def page_not_found(e):
     returns the created 404.html file specified for 404 errors.
     '''
     print(e)
-    return render_template('404.html', e=e), 404
+    return render_template('404.html'), 404
 
 
 @app.route("/")
 @app.route("/terms")
 def terms():
     '''Finds all terms from the mongo database
-    and displays them as a list on the terms.html template
+    and displays them as a list from a to z via the terms.html template
     '''
     all_terms = list(mongo.db.terms.find().sort("term_name", 1))
     return render_template("terms.html", terms=all_terms)
@@ -56,7 +56,7 @@ def terms():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     '''Searches for the text inserted in the form search bar in
-    the mongo database and displays it on the terms.hmtl template/page.
+    the mongo database and displays it via the terms.hmtl template.
     '''
     query = request.args.get("query")
     all_terms = list(mongo.db.terms.find({"$text": {"$search": query}}))
@@ -65,7 +65,11 @@ def search():
 
 @app.route("/search_by_field/<to_search>", methods=["GET", "POST"])
 def search_by_field(to_search):
-    '''Search by field name and be redirected to that page.
+    '''Changed the url to search_by_field/capitalized abbreviation. In
+    the case of an abbreviation not in dicty (or not capitalized), a
+    message and the homepage appears without any terms. However, if the
+    capitalized abbreviation is in dicty, the page with all terms in that
+    related field appears.
     '''
     dicty = {'CS': {'name': 'Cyber Security',
                     'template': 'cyber_security.html'},
@@ -95,24 +99,26 @@ def register():
     redirected to their own profile page.
     If the method is get, the register template/page displays.
     '''
+    # POST method, check the database for existing usernames
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
+        # if username already exists
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-
+        # getting registered by inserting new username in the database
         registered = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(registered)
-
+        # link session user to username, message and redirecting to
+        # profile page
         session["user"] = request.form.get("username").lower()
         flash("Successful Registration!")
         return redirect(url_for("profile", username=session["user"]))
-
+    # GET method
     return render_template("register.html")
 
 
@@ -126,6 +132,7 @@ def login():
     a message appears and the user is redirected to the login page.
     If the method is get, the login template/page displays.
     '''
+    # POST method
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -146,7 +153,7 @@ def login():
         # username doesn't exist
         flash("Incorrect Username and/or Password")
         return redirect(url_for("login"))
-
+    # GET method
     return render_template("login.html")
 
 
@@ -161,6 +168,7 @@ def profile(username):
     # get the session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    # get all terms that are created by the session user
     all_terms = list(mongo.db.terms.find(
         {"created_by": session['user']}).sort("term_name", 1))
     return render_template("profile.html", username=username, terms=all_terms)
@@ -177,6 +185,7 @@ def add_term():
     Otherwise, all terms are displayed on the add term
     template/page in order of field name.
     '''
+    # POST method, adding the 3 filled out fields of the form plus one more
     if request.method == "POST":
         term = {
             "field_name": request.form.get("field_name"),
@@ -184,10 +193,11 @@ def add_term():
             "term_definition": request.form.get("term_definition"),
             "created_by": session["user"]
         }
+        # inserted, message and redirected to the homepage
         mongo.db.terms.insert_one(term)
         flash("Term Successfully Added")
         return redirect(url_for("terms"))
-
+    # GET method, to get the empty add term form
     fields = mongo.db.fields.find().sort("field_name", 1)
     return render_template("add_term.html", fields=fields)
 
@@ -200,10 +210,12 @@ def edit_term(term_id):
     corresponding id in the database and a message appears.
     Otherwise,
     '''
+    # if the term is not found or not created by the session user,
+    # error page appears
     term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
     if not term or term['created_by'] != session['user']:
         return render_template("404.html")
-
+    # POST method, with message once database is updated
     if request.method == "POST":
         submit = {
             "field_name": request.form.get("field_name"),
@@ -213,7 +225,7 @@ def edit_term(term_id):
         }
         mongo.db.terms.update({"_id": ObjectId(term_id)}, submit)
         flash("Term Successfully Updated")
-
+    # GET method, to get an edit form with filled out data from the database
     term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
     fields = mongo.db.fields.find().sort("field_name", 1)
     return render_template("edit_term.html", term=term, fields=fields)
@@ -226,14 +238,18 @@ def delete_term(term_id):
     with term id from the url. Then, a message appears and
     the user is redirected to the terms template/page.
     '''
+    # first find the term in the database
     term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
+    # if not found in database, message appears and redirection to homepage
     if not term:
         flash("Term already deleted")
         return redirect(url_for("terms"))
-
+    # if not created by the current session user, user cannot delete the term
+    # and gets the error page displayed
     if term['created_by'] != session['user']:
         return render_template("404.html")
-
+    # otherwise removed from the database, message appears and redirection
+    # to the homepage
     mongo.db.terms.remove({"_id": ObjectId(term_id)})
     flash("Term Successfully Deleted")
     return redirect(url_for("terms"))
@@ -249,7 +265,7 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-
+# if branch name is main, the app runs on a certain IP and PORT
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -135,6 +135,8 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - Issue: I created my favicon and added all files that are mentioned on the website. This included the site.webmanifest:1 file. In the console I had a syntax and 404 error relating to site.webmanifest:1.
     - Fix: First I checked line 1 of the syntax, since that error was mentioned. I had no idea what was not correct, so I first deleted the file to add it again later. It turned out that my favicon was still there and the error was gone so I left it out. 
 - Issue: checking JavaScript with the JSHint gave an unused variable, var instance =. First I commented out the whole code snippet, but then my collapsible items would not work anymore. After that it turned out that just removing the part of "var instance =" already did the trick.
+- Issue: the pylint error W0613 unused-argument 'e'.
+    - Fix: it turned out you can just add print(e) inside the function with parameter 'e' to get rid of the error. 
 - Issue: my pylint check gave me multiple times the error E0102; function-redefined, function already defined. A function named terms and several variables called terms as well. Also, I imported login_required from Flask and created a function with the same name according to documentation.
     1. Fix: first I tried to change the name of the function, but that was more tricky, since it is also the route() decorator. Instead I decided to adapt the names of the variables. That worked just fine. 
     2. Fix: it turned out that, after commenting out the code of the function and checking on the website if the login_required would still work, it did not. Then, commenting out the code of the import and checking on the website, there was no issue at all. Interesting conclusing was that I could delete my import of login_required and the error was gone.
@@ -207,13 +209,17 @@ git clone https://github.com/USERNAME/REPOSITORY
 # Credits
 ## Code
 1. For setting up the project I watched and copied most of the start-up of the mini-project videos of CI.
-2. The custom validation for the dropdown in the add term form came from the mini-project and I copied it all.
-3. 
-## Acknowledgements
-1. The terms that were inserted are from the following three pages:
+2. The custom validation Javascript for the dropdown in the add term form came from the mini-project and I copied it all.
+3. The other Javascript/jQuery code came from the [Materialize](https://materializecss.com/collapsible.html) website.
+4. The login_required function and everyting related, like import and using it on functions, came from [here](https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/#login-required-decorator).
+5. 
+## Content
+1. The terms that were inserted came from the following three pages:
 - <a href="https://careerfoundry.com/en/blog/web-development/50-web-development-buzzwords-that-all-new-programmers-should-learn/" target="_blank">Web Development</a>
 - <a href="https://devsdata.com/big-data-terms-every-manager-should-know/" target="_blank">Data Analytics</a>
 - <a href="https://www.globalknowledge.com/us-en/topics/cybersecurity/glossary-of-terms/#gref" target="_blank">Cyber Security</a>
 2. I had a look at the <a href="https://github.com/Code-Institute-Solutions/SampleREADME" target="_blank">sample READme</a> of CI.
-3. A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for. Also thanks to my mentor for pushing me to learn more.
+## Acknowledgements
+- A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for.
+- And thanks to my mentor for pushing me to learn more!
 
