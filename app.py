@@ -71,17 +71,21 @@ def search_by_field(to_search):
     capitalized abbreviation is in dicty, the page with all terms in that
     related field appears.
     '''
+    # create a dictionary with dictionaries
     dicty = {'CS': {'name': 'Cyber Security',
                     'template': 'cyber_security.html'},
              'DA': {'name': 'Data Analytics',
                     'template': 'data_analytics.html'},
              'WD': {'name': 'Web Development',
                     'template': 'web_development.html'}}
-
+    # if abbreviation is not in the keys, message appears and the
+    # redirected to the homepage without any terms
     if to_search not in dicty.keys():
         flash("Invalid search key provided")
         return render_template('terms.html', terms=[])
-
+    # else, the abbreviation is one of the keys in dicty, name in
+    # dicty equal to the field name in the database will be displayed
+    # as a list from a to z via the accompanied template/page of that field.
     search_dict = dicty[to_search]
     all_terms = list(mongo.db.terms.find(
         {"field_name": search_dict['name']}).sort("term_name", 1))
@@ -264,6 +268,7 @@ def logout():
     flash("You've been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
 
 # if branch name is main, the app runs on a certain IP and PORT
 if __name__ == "__main__":
