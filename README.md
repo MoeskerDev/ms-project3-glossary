@@ -27,7 +27,7 @@ The final goal is to publish a book including the collection of good definitions
 ----
 ## Design choices
 ### Fonts
-- Materialize uses Roboto font and I took it over.
+- Materialize uses Roboto 2.0 font and I .
 ### Icons
 - All icons have the purpose to add or explicitly visually show the purpose of the related elements.
 ### Colours
