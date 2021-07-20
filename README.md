@@ -45,7 +45,7 @@ In essence, the idea was to keep it clean, but still play with a few colours. Th
     - #ffffff white text in the sidenavbar, grey and blue-grey darken-1 card panels to make links and text stand out.
 
 ### Styling
-- In order to recognize the term straight away I created stretched circle shapes around the term name on all pages to create consistency. At the same time, the reason to do this was also to create some schwung in order for the website not to look too rigid. 
+- In order to recognize the term straight away I created stretched circle shapes around the term name on all pages to create consistency. At the same time, the reason to do this was also to create some schwung in order for the website not to look too rigid or clinical. 
 - For the colour of the buttons I also took into account their function as mentioned above.
 - The terms are also displayed in alphabetical order on all pages to make it easier to search for a term when scrolling instead of using the search bar. 
 
@@ -61,8 +61,9 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - Backend code and frontend forms to allow logged-in users to add new definitions, edit them and delete them.
 - Backend code and frontend functionality for all users to search for terms.
 - A dropdown list and accordion element.
-- Created my own 404 error page.
-- Responsive for the following sizes:
+- Customized 404 error page.
+- Interactive elements
+- Responsive for the following screen sizes:
     - 320x568
     - 360x640
     - 375x667
@@ -74,10 +75,10 @@ All wireframes can be found <a href="" target="_blank">here</a>.
     - 768x1024
     - 1024x1366
     - 1366x768
-    - 280x653: not picking up my css changes for line height header, search field, their buttons and sidenav logo.
 
 ----
 ## Left to implement
+- Fully responsive, also for 280x768 screen size
 - Mongo DB word cloud
 - Flask logging 
 -
@@ -111,7 +112,15 @@ All wireframes can be found <a href="" target="_blank">here</a>.
     
 ----
 # Testing
-
+## Validators
+- [W3C Markup Validator](http://validator.w3.org/) - [Results]()
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
+- [JSHint Validator](https://jshint.com/) - [Results]()
+- Python code was checked via the command line by typing: ```pylint app.py```
+## Testing User Stories
+## Further testing
+## Known Bugs
+- 280x653: still issues with line height header, search field, their buttons and sidenav logo.
 ----
 # Deployment
 
@@ -173,12 +182,14 @@ git clone https://github.com/USERNAME/REPOSITORY
 ----
 # Credits
 ## Code
-
+1. For setting up the project I watched and copied most of the start-up of the mini-project videos of CI.
+2. The custom validation for the dropdown in the add term form came from the mini-project and I copied it all.
+3. 
 ## Acknowledgements
 1. The terms that were inserted are from the following three pages:
 - <a href="https://careerfoundry.com/en/blog/web-development/50-web-development-buzzwords-that-all-new-programmers-should-learn/" target="_blank">Web Development</a>
 - <a href="https://devsdata.com/big-data-terms-every-manager-should-know/" target="_blank">Data Analytics</a>
 - <a href="https://www.globalknowledge.com/us-en/topics/cybersecurity/glossary-of-terms/#gref" target="_blank">Cyber Security</a>
 2. I had a look at the <a href="https://github.com/Code-Institute-Solutions/SampleREADME" target="_blank">sample READme</a> of CI.
-3. A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for.
+3. A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for. Also thanks to my mentor for pushing me to learn more.
 
