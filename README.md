@@ -27,7 +27,7 @@ The final goal is to publish a book including the collection of good definitions
 ----
 ## Design choices
 ### Fonts
-- Materialize uses Roboto 2.0 font and I .
+- Materialize uses Roboto 2.0 font and I proceeded with that font since it is a clear enough font for the purpose of my app.
 ### Icons
 - All icons have the purpose to add or explicitly visually show the purpose of the related elements.
 ### Colours
@@ -118,17 +118,24 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 ## Deploy app to Heroku
 To deploy Glossary Grow Fields to Heroku, take the following steps:
 
-1. Create a requirements.txt file using the terminal command pip freeze > requirements.txt.
-2. Create a Procfile with the terminal command echo web: python app.py > Procfile.
+1. Create a requirements.txt file using the terminal command ```pip freeze > requirements.txt``` 
+2. Create a Procfile with the terminal command ```echo web: python app.py > Procfile```
 3. git add and git commit the new requirements and Procfile and then git push the project to GitHub.
-4. Create a new app on the <a href="https://signup.heroku.com/login" target="_blank" >Heroku website</a> by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+4. Create a new app on the [Heroku website](https://signup.heroku.com/login) by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
 5. Inside your newly created application, in the heroku dashboard, click on "Deploy" > "Deployment method" and select GitHub.
 6. Confirm the link between the heroku app and the correct GitHub repository.
 7. Now, in the heroku dashboard of your application, click on "Settings" > "Reveal Config Vars".
 8. Set the following config vars:
 
+Key|Value
+---|-----
+Debug|False
+IP|0.0.0.0
+MONGO_URI|mongodb+srv://<user_name>:<password>@<cluster_name>.vb0d4.mongodb.net/<database_name>?retryWrites=true&w=majority
+PORT|5000
+SECRET_KEY|<your_secret_key>
 
-- To get your MONGO_URI read the <a href="https://docs.atlas.mongodb.com/" target="_blank">MongoDB Atlas documentation</a>.
+- To get your MONGO_URI read the [MongoDB Atlas documentation](https://docs.atlas.mongodb.com/).
 9. Click "Deploy" in the heroku dashboard.
 10. In the section "Manual Deploy" make sure the main branch is selected and then click on "Deploy Branch".
 11. The site is now successfully deployed.
@@ -137,28 +144,32 @@ To deploy Glossary Grow Fields to Heroku, take the following steps:
 ## Run this project locally
 To clone this project into Gidpod you have to:
 
-1. Have a GitHub account: create one <a href="https://github.com/" target="_blank">here</a> if needed.
+1. Have a GitHub account: create one [here](https://github.com/) if needed.
 2. Use a Chrome Browser.
 According to the steps below:
-1. Install the <a href="https://www.gitpod.io/docs/browser-extension/" target="_blank">Gitpod Browser Extention for Chrome</a>.
+1. Install the [Gitpod Browser Extention for Chrome](https://www.gitpod.io/docs/browser-extension/).
 2. After installing it, restart the browser.
-3. Log into <a href="https://www.gitpod.io/" target="_blank">Gitpod</a> with your Gitpod account.
+3. Log into [Gitpod](https://www.gitpod.io/) with your Gitpod account.
 4. Go to your project GitHub repository in GitHub under the tab "Repositories".
 5. Click the green "Gitpod" button in the top right corner of the repository.
 6. This will trigger a new Gitpod workspace, created from the code in GitHub, where you can work locally.
 
 To work on the project code within a local IDE (Pycharm,VSCode, etc.):
 
-1. Go to the <a href="https://github.com/MoeskerDev/ms-project3-glossary" target="_blank">project GitHub repository</a>.
+1. Go to the [project GitHub repository](https://github.com/MoeskerDev/ms-project3-glossary).
 2. Click on the "Code" button next to the green "Gitpod" button.
 3. In the Clone section, make sure the HTTPS is selected, then copy the clone url of the repository.
 4. Open the terminal in your local IDE.
 5. Change the current working directory to the location where you want the cloned directory to be created.
-6. Then, type git clone and paste the url that you copied in step 3 behind it:
+6. Then, type ```git clone``` and paste the url that you copied in step 3 behind it:
+
+```
 git clone https://github.com/USERNAME/REPOSITORY
+```
+
 7. Press Enter for your local clone to be created.
 
-- For further information about cloning a repository from GitHub, read <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository" target="_blank">this</a>.
+- For further information about cloning a repository from GitHub, read [this](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository).
 ----
 # Credits
 ## Code
@@ -168,6 +179,6 @@ git clone https://github.com/USERNAME/REPOSITORY
 - <a href="https://careerfoundry.com/en/blog/web-development/50-web-development-buzzwords-that-all-new-programmers-should-learn/" target="_blank">Web Development</a>
 - <a href="https://devsdata.com/big-data-terms-every-manager-should-know/" target="_blank">Data Analytics</a>
 - <a href="https://www.globalknowledge.com/us-en/topics/cybersecurity/glossary-of-terms/#gref" target="_blank">Cyber Security</a>
-2. I had a look at the <a href="https://github.com/Code-Institute-Solutions/SampleREADME" target="_blank">sample REAdme</a> of CI.
+2. I had a look at the <a href="https://github.com/Code-Institute-Solutions/SampleREADME" target="_blank">sample READme</a> of CI.
 3. A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for.
 
