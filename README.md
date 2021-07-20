@@ -62,8 +62,19 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - Backend code and frontend functionality for all users to search for terms.
 - A dropdown list and accordion element.
 - Created my own 404 error page.
-- Responsive for all sizes:
-    - 
+- Responsive for the following sizes:
+    - 320x568
+    - 360x640
+    - 375x667
+    - 375x812
+    - 411x731
+    - 411x823
+    - 414x736
+    - 540x720
+    - 768x1024
+    - 1024x1366
+    - 1366x768
+    - 280x653: not picking up my css changes for line height header, search field, their buttons and sidenav logo.
 
 ----
 ## Left to implement
@@ -90,9 +101,9 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - <a href="https://jquery.com/" target="_blank"> jQuery:  </a>
     - To support features and functions of Materialize.
 - <a href="https://git-scm.com/" target="_blank"> Git: </a>
-    - Used for version control.
+    - Used for version control by utilizing Gitpod terminal to commit to Git and Push to GitHub.
 - <a href="https://github.com/" target="_blank"> GitHub: </a>
-    - To document the development process.
+    - To document and store the development process.
 - <a href="https://heroku.com/" target="_blank"> Heroku: </a>
     - Used to deploy this full stack web application to a Cloud platform.
 - <a href="https://balsamiq.com/" target="_blank"> Balsamiq:</a> 
@@ -104,6 +115,50 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 ----
 # Deployment
 
+## Deploy app to Heroku
+To deploy Glossary Grow Fields to Heroku, take the following steps:
+
+1. Create a requirements.txt file using the terminal command pip freeze > requirements.txt.
+2. Create a Procfile with the terminal command echo web: python app.py > Procfile.
+3. git add and git commit the new requirements and Procfile and then git push the project to GitHub.
+4. Create a new app on the <a href="https://signup.heroku.com/login" target="_blank" >Heroku website</a> by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+5. Inside your newly created application, in the heroku dashboard, click on "Deploy" > "Deployment method" and select GitHub.
+6. Confirm the link between the heroku app and the correct GitHub repository.
+7. Now, in the heroku dashboard of your application, click on "Settings" > "Reveal Config Vars".
+8. Set the following config vars:
+
+
+- To get your MONGO_URI read the <a href="https://docs.atlas.mongodb.com/" target="_blank">MongoDB Atlas documentation</a>.
+9. Click "Deploy" in the heroku dashboard.
+10. In the section "Manual Deploy" make sure the main branch is selected and then click on "Deploy Branch".
+11. The site is now successfully deployed.
+12. Click on "View" to view the app in your browser.
+
+## Run this project locally
+To clone this project into Gidpod you have to:
+
+1. Have a GitHub account: create one <a href="https://github.com/" target="_blank">here</a> if needed.
+2. Use a Chrome Browser.
+According to the steps below:
+1. Install the <a href="https://www.gitpod.io/docs/browser-extension/" target="_blank">Gitpod Browser Extention for Chrome</a>.
+2. After installing it, restart the browser.
+3. Log into <a href="https://www.gitpod.io/" target="_blank">Gitpod</a> with your Gitpod account.
+4. Go to your project GitHub repository in GitHub under the tab "Repositories".
+5. Click the green "Gitpod" button in the top right corner of the repository.
+6. This will trigger a new Gitpod workspace, created from the code in GitHub, where you can work locally.
+
+To work on the project code within a local IDE (Pycharm,VSCode, etc.):
+
+1. Go to the <a href="https://github.com/MoeskerDev/ms-project3-glossary" target="_blank">project GitHub repository</a>.
+2. Click on the "Code" button next to the green "Gitpod" button.
+3. In the Clone section, make sure the HTTPS is selected, then copy the clone url of the repository.
+4. Open the terminal in your local IDE.
+5. Change the current working directory to the location where you want the cloned directory to be created.
+6. Then, type git clone and paste the url that you copied in step 3 behind it:
+git clone https://github.com/USERNAME/REPOSITORY
+7. Press Enter for your local clone to be created.
+
+- For further information about cloning a repository from GitHub, read <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository" target="_blank">this</a>.
 ----
 # Credits
 ## Code
@@ -113,5 +168,6 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - <a href="https://careerfoundry.com/en/blog/web-development/50-web-development-buzzwords-that-all-new-programmers-should-learn/" target="_blank">Web Development</a>
 - <a href="https://devsdata.com/big-data-terms-every-manager-should-know/" target="_blank">Data Analytics</a>
 - <a href="https://www.globalknowledge.com/us-en/topics/cybersecurity/glossary-of-terms/#gref" target="_blank">Cyber Security</a>
-2. A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for.
+2. I had a look at the <a href="https://github.com/Code-Institute-Solutions/SampleREADME" target="_blank">sample REAdme</a> of CI.
+3. A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for.
 
