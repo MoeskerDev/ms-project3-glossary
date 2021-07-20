@@ -114,20 +114,37 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 # Testing
 ## Validators
 - [W3C Markup Validator](http://validator.w3.org/)
-    - One warning left; section lacks heading. This is about the flash messages section.
+    - No errors or warnings found.
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
-    - No errors found
-- [JSHint Validator](https://jshint.com/) - [Results]()
+    - No error found.
+- [JSHint Validator](https://jshint.com/)
     - Left with two undefined variables, $ and M, where $ is part of the jQuery code and M is of Materialize which also relies on jQuery. 
 - Python code was checked via the command line by typing: ```pylint app.py```
     - Left with one unused-import error, W0611 for import env, which is okay. I am using it, pylint just cannot see that. 
 ## Testing User Stories
+
 ## Further testing
+- The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox. 
+- The website was viewed on several devices, Laptop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, Iphone 5/SE, Iphone 6/7/8, Iphone 6/7/8 Plus, Iphone x, Ipad, Ipad Pro, Surface Duo and Galaxy Fold. 
 ## Known Bugs
-## Fixed Bugs
-- Checking the HTML code from my templates gave many errors and warnings. Therefore I moved to the website, and with a rightclick selected "View page source". I copied that code and pasted it in the Markup validator. One warning came up; section lacks heading. 
-    - My flash messages were inside a section element and placing an empty header was not working since that created the error of an empty header. So I replaced the section element with a div element. First testing my flash messages to see if it had any effect. They were still working so I checked my pages again and this time no errors or warnings at all!
 - 280x653: still issues with line height header, search field, their buttons and sidenav logo.
+- edit term page buttons are not positioned side by side correctly in Ipad and some mobile views.
+## Fixed Bugs
+- Issue: in mobile view my register and login button were not placed in the center of the form.
+    - Fix: first I tried to fix this with additional css, but this was not successful. Perhaps due to Materialize. However, removing the offset-m2 class in my html and converting it to a percentage in css worked just fine. 
+- Issue: I created my favicon and added all files that are mentioned on the website. This included the site.webmanifest:1 file. In the console I had a syntax and 404 error relating to site.webmanifest:1.
+    - Fix: First I checked line 1 of the syntax, since that error was mentioned. I had no idea what was not correct, so I first deleted the file to add it again later. It turned out that my favicon was still there and the error was gone so I left it out. 
+- Issue: checking JavaScript with the JSHint gave an unused variable, var instance =. First I commented out the whole code snippet, but then my collapsible items would not work anymore. After that it turned out that just removing the part of "var instance =" already did the trick.
+- Issue: my pylint check gave me multiple times the error E0102; function-redefined, function already defined. A function named terms and several variables called terms as well. Also, I imported login_required from Flask and created a function with the same name according to documentation.
+    1. Fix: first I tried to change the name of the function, but that was more tricky, since it is also the route() decorator. Instead I decided to adapt the names of the variables. That worked just fine. 
+    2. Fix: it turned out that, after commenting out the code of the function and checking on the website if the login_required would still work, it did not. Then, commenting out the code of the import and checking on the website, there was no issue at all. Interesting conclusing was that I could delete my import of login_required and the error was gone.
+- Issue: a CO103 error; invalid-name, does not conform to snake_case naming about my e parameter in a function came up with the pylint check.
+    - Fix: first I checked to add an underscore before e; _e and that worked but I did not really like it, so I checked online. I found out that you can add a [.pylintrc file](https://stackoverflow.com/questions/22448731/how-do-i-create-a-pylintrc-file) and add e to the list of [good-names](https://stackoverflow.com/questions/14233867/pylint-ignore-specific-names). This is what I did and it worked!
+- Issue: after checking my python code, the error CO114; missing-module-docstring came up.
+    - Fix: I tried to add a docstring below the line, like with a function, however this created more errors. So I checked [online](https://stackoverflow.com/questions/65949325/how-do-you-fix-missing-module-docstringpylintmissing-module-docstring) and found that you have to create one above the module. This worked.
+- Issue: checking the HTML code from my templates gave many errors and warnings. Therefore I moved to the website, and with a rightclick selected "View page source". I copied that code and pasted it in the Markup validator. One warning came up; "section lacks heading". 
+    - Fix: my flash messages were inside a section element and placing an empty header was not working since that created the error of an empty header. So I replaced the section element with a div element. First testing my flash messages to see if it had any effect. They were still working so I checked my pages again and this time no errors or warnings at all!
+
 ----
 # Deployment
 
