@@ -113,8 +113,10 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 ----
 # Testing
 ## Validators
-- [W3C Markup Validator](http://validator.w3.org/) - [Results]()
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
+- [W3C Markup Validator](http://validator.w3.org/)
+    - One warning left; section lacks heading. This is about the flash messages section.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+    - No errors found
 - [JSHint Validator](https://jshint.com/) - [Results]()
     - Left with two undefined variables, $ and M, where $ is part of the jQuery code and M is of Materialize which also relies on jQuery. 
 - Python code was checked via the command line by typing: ```pylint app.py```
@@ -122,6 +124,9 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 ## Testing User Stories
 ## Further testing
 ## Known Bugs
+## Fixed Bugs
+- Checking the HTML code from my templates gave many errors and warnings. Therefore I moved to the website, and with a rightclick selected "View page source". I copied that code and pasted it in the Markup validator. One warning came up; section lacks heading. 
+    - My flash messages were inside a section element and placing an empty header was not working since that created the error of an empty header. So I replaced the section element with a div element. First testing my flash messages to see if it had any effect. They were still working so I checked my pages again and this time no errors or warnings at all!
 - 280x653: still issues with line height header, search field, their buttons and sidenav logo.
 ----
 # Deployment

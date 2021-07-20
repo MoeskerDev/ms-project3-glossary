@@ -13,7 +13,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     type="text/css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/css/style.css') }}" type="text/css">
   <link rel="apple-touch-icon" sizes="180x180"
     href="{{ url_for('static', filename='css/images/apple-touch-icon.png') }}">
   <link rel="icon" type="image/png" sizes="32x32"
@@ -70,7 +70,7 @@
     </ul>
   </header>
   <!--with flash messages, if there are messages, for each message, styling-->
-  <section>
+  <div>
     <!--Flash messages-->
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -81,7 +81,7 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
-  </section>
+  </div>
   <!--The content block resides in a container class-->
   <main class="container">
     {% block content %}
