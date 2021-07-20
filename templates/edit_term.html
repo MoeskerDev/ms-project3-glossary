@@ -1,63 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
 <!--template to edit a term page-->
-    <h3 class="teal white-text center-align">Edit Term</h3>
+<h3 class="teal white-text center-align">Edit Term</h3>
 <!--form with three input fields and two buttons-->
-    <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('edit_term', term_id=term._id) }}">
-            <!--field name-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix"></i>
-                    <select id="field_name" name="field_name" class="validate" required>
-                        <option value="" disabled>Choose field</option>
-                        {% for field in fields %}
-                            {% if field.field_name == term.field_name %}
-                                <option value="{{ field.field_name }}" selected>{{ field.field_name }}</option>
-                            {% else %}
-                                <option value="{{ field.field_name }}">{{ field.field_name }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <label for="field_name">Field</label>
-                </div>
+<div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('edit_term', term_id=term._id) }}">
+        <!--field name-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix"></i>
+                <select id="field_name" name="field_name" class="validate" required>
+                    <option value="" disabled>Choose field</option>
+                    {% for field in fields %}
+                    {% if field.field_name == term.field_name %}
+                    <option value="{{ field.field_name }}" selected>{{ field.field_name }}</option>
+                    {% else %}
+                    <option value="{{ field.field_name }}">{{ field.field_name }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="field_name">Field</label>
             </div>
-            <!--term name-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-plus-circle prefix"></i>
-                    <input id="term_name" name="term_name" minlength="2" 
-                        maxlength="50" value="{{ term.term_name }}" type="text" 
-                        class="validate" required>
-                    <label for="term_name">Term</label>
-                </div>
+        </div>
+        <!--term name-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-plus-circle prefix"></i>
+                <input id="term_name" name="term_name" minlength="2" maxlength="50" value="{{ term.term_name }}"
+                    type="text" class="validate" required>
+                <label for="term_name">Term</label>
             </div>
-            <!--term definition-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pen-square prefix"></i>
-                    <textarea id="term_definition" name="term_definition" minlength="5" 
-                        maxlength="500" class="materialize-textarea" required>
+        </div>
+        <!--term definition-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pen-square prefix"></i>
+                <textarea id="term_definition" name="term_definition" minlength="5" maxlength="500"
+                    class="materialize-textarea" required>
                         {{- term.term_definition -}}
                     </textarea>
-                    <label for="term_definition">Definition</label>
-                </div>
+                <label for="term_definition">Definition</label>
             </div>
-            <!--submit button-->
-            <div class="row">
-                <div class="col s12 center-align">
-                    <!--cancel button-->
-                    <a href="{{ url_for('terms')}}" class="btn deep-orange">
-                        Cancel Edit <i class="fas fa-window-close right"></i>
-                    </a>
-                    <!--edit button-->
-                    <button class="btn waves-effect teal darken-1" type="submit"
+        </div>
+        <!--submit button-->
+        <div class="row">
+            <div class="col s12 center-align">
+                <!--cancel button-->
+                <a href="{{ url_for('terms')}}" class="btn deep-orange">
+                    Cancel Edit <i class="fas fa-window-close right"></i>
+                </a>
+                <!--edit button-->
+                <button class="btn waves-effect teal darken-1" type="submit"
                     onclick="return confirm('Are you sure you want to edit?');">
-                        Edit Term <i class="fas fa-edit right"></i>
-                    </button>
-                </div>
+                    Edit Term <i class="fas fa-edit right"></i>
+                </button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

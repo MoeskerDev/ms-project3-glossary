@@ -8,10 +8,10 @@
 the logged in user did not create any terms a message appears-->
 <div class="row">
     <div class="col s12">
-      <div class="card-panel grey">
-        <ul class="collapsible expandable">
-        {% if terms|length > 0 %}
-            {% for term in terms %}
+        <div class="card-panel grey">
+            <ul class="collapsible expandable">
+                {% if terms|length > 0 %}
+                {% for term in terms %}
                 {% if session.user|lower == term.created_by|lower %}
                 <li>
                     <!--header with term name-->
@@ -42,13 +42,13 @@ the logged in user did not create any terms a message appears-->
                     </div>
                 </li>
                 {% endif %}
-            {% endfor %}
-        <!--message if there are no terms to display-->
-        {% else %}
-            <h3 class="center-align red-text">You've Added No Terms</h3>
-        {% endif %}
-        </ul>
-      </div>
+                {% endfor %}
+                <!--message if there are no terms to display-->
+                {% else %}
+                <h3 class="center-align red-text">You've Added No Terms</h3>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 </div>
 

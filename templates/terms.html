@@ -1,70 +1,68 @@
 {% extends "base.html" %}
 {% block content %}
 <!--template of the homepage-->
-    <h3 class="teal white-text center-align">All Terms</h3>
+<h3 class="teal white-text center-align">All Terms</h3>
 <!--form as search field with two buttons-->
-    <div class="row card-panel grey lighten-2">
-        <form action="{{ url_for('search') }}" method="GET" class="col s12">
-            <!--search field-->
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8 white">
-                    <i class="fas fa-search prefix hide-on-small-only"></i>
-                    <input type="text" name="query" id="query" minlength="2" class="validate" required>
-                    <label for="query" class="teal-text">Search</label>
-                </div>
-                <div class="col s12 m4">
-                    <!--reset button-->
-                    <a href="{{ url_for('terms') }}" class="reset btn deep-orange">Reset</a>
-                    <!--search button-->
-                    <button type="submit" class="btn teal darken-1">
-                        <i class="fas fa-search left"></i> Search
-                    </button>
-                </div>
+<div class="row card-panel grey lighten-2">
+    <form action="{{ url_for('search') }}" method="GET" class="col s12">
+        <!--search field-->
+        <div class="row valign-wrapper center-align">
+            <div class="input-field col s12 m8 white">
+                <i class="fas fa-search prefix hide-on-small-only"></i>
+                <input type="text" name="query" id="query" minlength="2" class="validate" required>
+                <label for="query" class="teal-text">Search</label>
             </div>
-        </form> 
-    </div>
-    <!--list of all terms in the database-->
-    {% if terms|length > 0 %}
-    <ul class="collapsible">
-        {% for term in terms %}
-        <li>
-            <!--header with term name-->
-            <div class="collapsible-header teal white-text">  
-                    <i class="fas fa-caret-down"></i>
-                    <strong>{{ term.term_name }}</strong>
+            <div class="col s12 m4">
+                <!--reset button-->
+                <a href="{{ url_for('terms') }}" class="reset btn deep-orange">Reset</a>
+                <!--search button-->
+                <button type="submit" class="btn teal darken-1">
+                    <i class="fas fa-search left"></i> Search
+                </button>
             </div>
-            <!--body with field name, term name, term definition and username of creator of that term-->
-            <div class="collapsible-body center-align grey lighten-2">
-                <strong>{{ term.field_name }}</strong>
-                <p class="term-card white circle">
-                    <strong>{{ term.term_name }}</strong>
-                </p>
-                <p>{{ term.term_definition }}</p>
-                <p><em>by: {{ term.created_by }}</em></p>
-                <!--edit and delete button only visible for the logged in creator of that specific term-->
+        </div>
+    </form>
+</div>
+<!--list of all terms in the database-->
+{% if terms|length > 0 %}
+<ul class="collapsible">
+    {% for term in terms %}
+    <li>
+        <!--header with term name-->
+        <div class="collapsible-header teal white-text">
+            <i class="fas fa-caret-down"></i>
+            <strong>{{ term.term_name }}</strong>
+        </div>
+        <!--body with field name, term name, term definition and username of creator of that term-->
+        <div class="collapsible-body center-align grey lighten-2">
+            <strong>{{ term.field_name }}</strong>
+            <p class="term-card white circle">
+                <strong>{{ term.term_name }}</strong>
+            </p>
+            <p>{{ term.term_definition }}</p>
+            <p><em>by: {{ term.created_by }}</em></p>
+            <!--edit and delete button only visible for the logged in creator of that specific term-->
             <div class="row">
                 {% if session.user|lower == term.created_by|lower %}
                 <!--edit button-->
                 <div class="col s6">
-                    <a href="{{ url_for('edit_term', term_id=term._id) }}" 
-                    class="btn-small left deep-orange accent-1"
-                    onclick="return confirm('Are you sure you want to edit?');">Edit</a>
+                    <a href="{{ url_for('edit_term', term_id=term._id) }}" class="btn-small left deep-orange accent-1"
+                        onclick="return confirm('Are you sure you want to edit?');">Edit</a>
                 </div>
                 <!--delete button-->
                 <div class="col s6">
-                    <a href="{{ url_for('delete_term', term_id=term._id) }}" 
-                    class="btn-small left deep-orange darken-4"
-                    onclick="return confirm('Are you sure you want to delete?');">Delete</a>
+                    <a href="{{ url_for('delete_term', term_id=term._id) }}" class="btn-small left deep-orange darken-4"
+                        onclick="return confirm('Are you sure you want to delete?');">Delete</a>
                 </div>
                 {% endif %}
             </div>
-            </div>  
-        </li>
-        {% endfor %}
-    </ul>
-    <!--if there are no result, no terms in the database a message appears-->
-    {% else %}
-        <h3 class="red-text center-align">No Results Found</h3>
-    {% endif %}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<!--if there are no result, no terms in the database a message appears-->
+{% else %}
+<h3 class="red-text center-align">No Results Found</h3>
+{% endif %}
 
 {% endblock %}

@@ -1,21 +1,27 @@
+/*---------------------------------------------Body-----------------------*/
 body {
     background-color: #e0f2f1;
     color:teal
 }
-/*makes links buttons more like the buttons from Materialize*/
+/*-----------------------------------------------Navbar-----------------------*/
+.sidenav li a {
+    color: white;
+}
+/*---------------------------------------Flash messages-----------------------*/
+.flashes h4, h3 {
+    line-height: 2;
+}
+/*-------------------------------------------Cards-----------------------------*/
+.term-card {
+    color: #bf360c;
+}
+/*-----------------------------------------------Buttons-----------------------*/
+/*makes edit and delete links more like the buttons from Materialize*/
 a.edit, a.delete, a.account {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-}
-
-.sidenav li a {
-    color: white;
-}
-
-.flashes h4, h3 {
-    line-height: 2;
 }
 
 .btn-large {
@@ -25,15 +31,10 @@ a.edit, a.delete, a.account {
 .btn-small {
     margin: 5px;
 }
-
-.term-card {
-    color: #bf360c;
-}
-
+/* responsive positioning of the login and register button*/
 #login, #register {
     padding-left: 30%;
 }
-
 /*------------------------------------------------Media Queries-----------------*/
 /*-----
 // Medium devices (Ipad, 768px)
@@ -63,6 +64,9 @@ a.edit, a.delete, a.account {
         margin-top: 10px;
     }
 }
+/*-----
+// Small devices (Mobile, 414px)
+-----*/
 @media screen and (width: 414px) {
     button.btn.teal.darken-1 {
         margin-top: 10px;
@@ -73,7 +77,9 @@ a.edit, a.delete, a.account {
         margin-top: 16px;
     } 
 }
-
+/*-----
+// Small devices (Mobile, 411px)
+-----*/
 @media screen and (width: 411px) {
     button.btn.teal.darken-1 {
         margin-top: 10px;
@@ -84,7 +90,9 @@ a.edit, a.delete, a.account {
         margin-top: 16px;
     }
 }
-
+/*-----
+// Small devices (Mobile, 375px)
+-----*/
 @media screen and (width: 375px) {
     button.btn.teal.darken-1 {
         margin-top: 10px;
@@ -99,7 +107,9 @@ a.edit, a.delete, a.account {
         margin-top: 16px;
     }
 }
-
+/*-----
+// Small devices (Mobile, 360px)
+-----*/
 @media screen and (width: 360px) {
     button.btn.teal.darken-1 {
         margin-top: 10px;
@@ -112,7 +122,9 @@ a.edit, a.delete, a.account {
         margin-top: 16px;
     }
 }
-
+/*-----
+// Small devices (Mobile, 320px)
+-----*/
 @media screen and (width: 320px) {
     button.btn.teal.darken-1 {
         margin-top: 10px;
@@ -128,7 +140,9 @@ a.edit, a.delete, a.account {
         line-height: 1.5;
         margin-top: 16px;
     }
-                    
+/*-----
+// Small devices (Mobile, 280px)
+-----*/                    
 @media screen and (width: 280px) {
     button.btn.teal.darken-1 {
         margin-top: 5px;

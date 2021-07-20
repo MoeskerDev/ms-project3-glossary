@@ -27,7 +27,7 @@ The final goal is to publish a book including the collection of good definitions
 ----
 ## Design choices
 ### Fonts
-- Materialize uses Roboto 2.0 font and I proceeded with that font since it is a clear enough font for the purpose of my app.
+- Materialize uses Roboto 2.0 font and I proceeded with that font since it is a clear enough font for the purpose of my app. Therefore, I also did not add a backup font, like sans serif.
 ### Icons
 - All icons have the purpose to add or explicitly visually show the purpose of the related elements.
 ### Colours
@@ -78,10 +78,10 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 
 ----
 ## Left to implement
-- Fully responsive, also for 280x768 screen size
+- Also fully responsive for 280x768 screen size
+- More efficient responsive css coding
 - Mongo DB word cloud
 - Flask logging 
--
 
 ----
 # Technologies Used
@@ -116,7 +116,9 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - [W3C Markup Validator](http://validator.w3.org/) - [Results]()
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
 - [JSHint Validator](https://jshint.com/) - [Results]()
+    - Left with two undefined variables, $ and M, where $ is part of the jQuery code and M is of Materialize which also relies on jQuery. 
 - Python code was checked via the command line by typing: ```pylint app.py```
+    - Left with one unused-import error, W0611 for import env, which is okay. I am using it, pylint just cannot see that. 
 ## Testing User Stories
 ## Further testing
 ## Known Bugs
