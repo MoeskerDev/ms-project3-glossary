@@ -79,7 +79,7 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 
 ----
 ## Left to implement
-- Also fully responsive for 280x768 screen size
+- Also fully responsive for 280x768 screen size; somehow my css for width 280 is not being picked up..
 - More efficient responsive css coding
 - Mongo DB word cloud which shows terms most viewed/searched for
 - Flask logging 

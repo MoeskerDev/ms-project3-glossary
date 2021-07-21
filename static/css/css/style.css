@@ -68,6 +68,10 @@ a.edit, a.delete, a.account {
     button.btn.teal.darken-1 {
         margin-top: 10px;
     }
+
+    #edit_term {
+        margin-top: 0px;
+    }
 }
 /*-----
 // Small devices (Mobile, 414px)
@@ -81,6 +85,10 @@ a.edit, a.delete, a.account {
         line-height: 1.5;
         margin-top: 16px;
     } 
+
+    #edit_term {
+        margin-top: 0px;
+    }
 }
 /*-----
 // Small devices (Mobile, 411px)
@@ -93,6 +101,10 @@ a.edit, a.delete, a.account {
     h3.teal.white-text.center-align, .flashes h4, h3 {
         line-height: 1.5;
         margin-top: 16px;
+    }
+
+    #edit_term {
+        margin-top: 0px;
     }
 }
 /*-----
@@ -111,6 +123,10 @@ a.edit, a.delete, a.account {
         line-height: 1.5;
         margin-top: 16px;
     }
+
+    #edit_term {
+        margin-top: 0px;
+    }
 }
 /*-----
 // Small devices (Mobile, 360px)
@@ -125,6 +141,10 @@ a.edit, a.delete, a.account {
     h3.teal.white-text.center-align, .flashes h4, h3 {
         line-height: 1.5;
         margin-top: 16px;
+    }
+
+    #edit_term {
+        margin-top: 0px;
     }
 }
 /*-----
@@ -172,6 +192,14 @@ a.edit, a.delete, a.account {
     h3.teal.white-text.center-align, .flashes h4, h3 {
         line-height: 1.5;
         margin-top: 16px;
+    }
+
+    #edit_term {
+        margin-top: 10px;
+    }
+
+    #edit_profile, #delete_profile {
+        padding-left: 0px;
     }
 }
 }
