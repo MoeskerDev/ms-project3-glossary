@@ -8,7 +8,7 @@ View the live project <a href="" target="_blank">here</a>
 ## Project Goals
 Creating an open jargon glossary for three growing fields in IT: Cyber Security, Data Analytics and Web Development. The idea is that visitors can find and share definitions by reading, creating, editing and deleting terms and definitions. The target audience is anyone who is interested, but more focused will be for newbies in these fields and even the more experienced since they can share there knowdledge with the newbies. At the same time, newbies can add new terms as well while they learn and come across certain terms often.
 
-The final goal is to publish a book including the collection of good definitions for all three fields and in addition, a word cloud.
+The final goal is to publish a book including the collection of good definitions for all three fields.
 
 ----
 ## User Stories
