@@ -85,6 +85,7 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 - Flask logging 
 - New terms to show as new for a certain time
 - Voting regarding quality of definition
+- Create even better custom error pages
 
 ----
 # Technologies Used
@@ -157,7 +158,8 @@ The most common path through the website for an anonymous user will be the Homep
 
 * I want to easily navigate back to the homepage if I end up at the 404 error page to not get lost.
 
-    i. Once I am on the custom error page, there is a button which says "Return to homepage" and redirects the user back to the homepage with all terms.
+    i. Once I am on the custom error page, there is a button below the error message which says "Return to homepage" and redirects the user back to the homepage with all terms. 
+    ii. Another option would be to use the navbar, either click home or glossary frow fields.
 
 The most common path for a registered user is from the homepage to the login page which leads to the profile page (from now on logged in user). From there you can either delete a term which then takes you back to the homepage or you edit a term which leads to the edit term page. By cancelling the edit term you go back to the homepage. By editing a term, you stay on the edit term page to see your changes. Another frequent path from the profile page could be the add term page. Once you have added a term you are redirected to the homepage with all terms, including your newly added term. 
 

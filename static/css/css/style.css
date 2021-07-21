@@ -45,10 +45,6 @@ a.edit, a.delete, a.account {
 // Medium devices (Ipad, 768px)
 -----*/
 @media screen and (width: 768px) {
-    a.reset {
-        margin-bottom: 10px;
-    }
-
     div.collapsible-body {
         padding-bottom: 0px;
     }
@@ -59,10 +55,6 @@ a.edit, a.delete, a.account {
 
     div.card-action {
         padding-top: 0px;
-    }
-
-    a.reset {
-        margin-bottom: 10px;
     }
      
     button.btn.teal.darken-1 {
