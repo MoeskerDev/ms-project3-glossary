@@ -69,7 +69,8 @@ def search_by_field(to_search):
     the case of an abbreviation not in dicty (or not capitalized), a
     message and the homepage appears without any terms. However, if the
     capitalized abbreviation is in dicty, the page with all terms in that
-    related field appears.
+    related field appears. At the same time a refactoring of the three previous
+    functions into one main function.
     '''
     # create a dictionary with dictionaries
     dicty = {'CS': {'name': 'Cyber Security',

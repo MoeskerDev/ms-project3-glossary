@@ -3,27 +3,28 @@ View the live project <a href="" target="_blank">here</a>
 
 # UX
 ## Project Goals
-Creating a jargon glossary for three growing fields in IT: Cyber Security, Data Analytics and Web Development. The idea is that visitors can find and share definitions by reading, creating, editing and deleting terms and definitions.
+Creating an open jargon glossary for three growing fields in IT: Cyber Security, Data Analytics and Web Development. The idea is that visitors can find and share definitions by reading, creating, editing and deleting terms and definitions. The target audience is anyone who is interested, but more focused will be for newbies in these fields and even the more experienced since they can share there knowdledge with the newbies. At the same time, newbies can add new terms as well while they learn and come across certain terms often.
 
 The final goal is to publish a book including the collection of good definitions for all three fields and in addition, a word cloud.
 
 ----
 ## User Stories
 1. Anonymous Visitor Goals
-    - As an anonymous user, I want to easily understand the main purpose of the site and scroll through all terms.
+    - As an anonymous user, I want to easily understand the main purpose of the site and to scroll through all terms.
     - As an anonymous user, I want to easily navigate through the application to find and read terms relating to a specific field.
-    - As an anonymous user, I want to be able to add new terms with their respective definition to add to the collection of important terms in the field.
-    - As an anonymous user, I want to be able to edit the definition of terms to improve the quality of the site.
-    - As an anonymous user, I want to be able to delete certain terms to ensure updated relevancy of the collection of terms.
-    - As an anonymous user, I want to be able to see which terms are most frequently searched for.
+    - As an anonymous user, I want to be able to quickly search for a particular term to see if that term exists and learn the meaning of it.
+    - As an anonymous user, I want to receive feedback that a term I searched for does not exist on this site to attain good user experience.
+    - As an anonymous user, after I searched for a term I want to easily see all terms again so that I can also scroll through the terms available and learn more. 
+    - As an anonymous user, I want to easily navigate back to the homepage if I end up at the 404 error page to achieve good user experience.
 
 2. Registered/logged in Visitor Goals
-    - As a registered user, I want to see which terms are new on the site.
-    -
-    -
-
-
-  
+    - As a registered user, I want to be able to add new terms with their respective definition to add to the collection of important terms in the field.
+    - As a registered user, I want to be able to edit my previous added definition of terms to improve the quality of the site.
+    - As a registered user, I want to be able to delete certain terms to ensure updated relevancy of the collection of terms.
+    - As a registered user, I want to have my own page where I can see an overview of all the terms that I added in alphabetical order.
+    - As a registered user, I want to get a confirmation message before editing or deleting one of my terms on one of the field pages to prevent accidental deletion. 
+    - As a registered user, I want to be able to reverse the editing of one of my terms via my profile page.
+ 
 ----
 ## Design choices
 ### Fonts
@@ -80,8 +81,10 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 ## Left to implement
 - Also fully responsive for 280x768 screen size
 - More efficient responsive css coding
-- Mongo DB word cloud
+- Mongo DB word cloud which shows terms most viewed/searched for
 - Flask logging 
+- New terms to show as new for a certain time
+- Voting regarding quality of definition
 
 ----
 # Technologies Used
@@ -119,9 +122,13 @@ All wireframes can be found <a href="" target="_blank">here</a>.
     - No error found.
 - [JSHint Validator](https://jshint.com/)
     - Left with two undefined variables, $ and M, where $ is part of the jQuery code and M is of Materialize which also relies on jQuery. 
-- Python code was checked via the command line by typing: ```pylint app.py```
-    - Left with one unused-import error, W0611 for import env, which is okay. I am using it, pylint just cannot see that. 
+- Python code was checked via the command line by typing: ```pylint app.py``` and via the online [Python validator](http://pep8online.com/)
+    - Pylint left me with one unused-import error, W0611 for import env, which is okay. I am using it, pylint just cannot see that. 
+    - The PEP8 requirements results were: all right.
 ## Testing User Stories
+The most common path through the website for an anonymous user will be the Homepage and then search for a particular term via the search bar or scrolling down. The separate field pages were added to have a collection of terms in a particular field attainable using only one click, since the index for the search bar is based on the term name and term definition. Another frequent path would be from Homepage to the Register page.
+
+1.a As an anonymous user, I want to easily understand the main purpose of the site and to scroll through all terms.
 
 ## Further testing
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox. 

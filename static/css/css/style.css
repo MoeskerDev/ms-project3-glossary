@@ -11,6 +11,11 @@ body {
 .flashes h4, h3 {
     line-height: 2;
 }
+
+h3.center-align.white.red-text {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 /*-------------------------------------------Cards-----------------------------*/
 .term-card {
     color: #bf360c;
