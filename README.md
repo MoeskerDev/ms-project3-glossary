@@ -1,9 +1,9 @@
                                         Glossary Growing Fields
 View the live project <a href="" target="_blank">here</a>
 
-![Mockup home](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/home_mockup.png)
-![Mockup field](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/field_mockup.png)
-![Mockup error](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/error_mockup.png)
+[Mockup home](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/home_mockup.png)
+[Mockup field](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/field_mockup.png)
+[Mockup error](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/error_mockup.png)
 # UX
 ## Project Goals
 Creating an open jargon glossary for three growing fields in IT: Cyber Security, Data Analytics and Web Development. The idea is that visitors can find and share definitions by reading, creating, editing and deleting terms and definitions. The target audience is anyone who is interested, but more focused will be for newbies in these fields and even the more experienced since they can share there knowdledge with the newbies. At the same time, newbies can add new terms as well while they learn and come across certain terms often.
