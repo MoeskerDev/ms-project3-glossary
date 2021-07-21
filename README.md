@@ -204,8 +204,7 @@ The most common path for a registered user is from the homepage to the login pag
 - The Lighthouse report for mobile can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/lighthouse_mobile_final.png).
 - The Lighthouse report for desktop can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/lighthouse_desktop_final.png).
 ## Known Bugs
-- 280x653: still issues with line height header, search field, their buttons and sidenav logo.
-- edit term page buttons are not positioned side by side correctly in Ipad and some mobile views.
+- 280x653: still issues with line height header, search field, their buttons, sidenav logo and edit term space between buttons.
 ## Fixed Bugs
 - Issue: in mobile view my register and login button were not placed in the center of the form.
     - Fix: first I tried to fix this with additional css, but this was not successful. Perhaps due to Materialize. However, removing the offset-m2 class in my html and converting it to a percentage in css worked just fine. 
