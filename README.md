@@ -10,20 +10,20 @@ The final goal is to publish a book including the collection of good definitions
 ----
 ## User Stories
 1. Anonymous Visitor Goals
-    - As an anonymous user, I want to easily understand the main purpose of the site and to scroll through all terms.
-    - As an anonymous user, I want to easily navigate through the application to find and read terms relating to a specific field.
-    - As an anonymous user, I want to be able to quickly search for a particular term to see if that term exists and learn the meaning of it.
-    - As an anonymous user, I want to receive feedback that a term I searched for does not exist on this site to attain good user experience.
-    - As an anonymous user, after I searched for a term I want to easily see all terms again so that I can also scroll through the terms available and learn more. 
-    - As an anonymous user, I want to easily navigate back to the homepage if I end up at the 404 error page to achieve good user experience.
+    - As an anonymous user, I want to easily understand the main purpose of the site and to scroll through all terms to get a quick overview.
+    - As an anonymous user, I want to easily navigate through the application to find and read terms relating to a specific field to have a focused elaborate search.
+    - As an anonymous user, I want to be able to quickly search for a term to see if that term exists on this site and to learn the meaning of it.
+    - As an anonymous user, I want to receive feedback that a term I searched for does not exist on this site and then to easily return to the homepage with all terms to attain good user experience.
+    - As an anonymous user, After I searched for a term that exists, I want to easily see all results so that I can also scroll through the terms available to learn even more. 
+    - As an anonymous user, I want to easily navigate back to the homepage if I end up at the 404 error page to not get lost.
 
 2. Registered/logged in Visitor Goals
-    - As a registered user, I want to be able to add new terms with their respective definition to add to the collection of important terms in the field.
-    - As a registered user, I want to be able to edit my previous added definition of terms to improve the quality of the site.
-    - As a registered user, I want to be able to delete certain terms to ensure updated relevancy of the collection of terms.
-    - As a registered user, I want to have my own page where I can see an overview of all the terms that I added in alphabetical order.
-    - As a registered user, I want to get a confirmation message before editing or deleting one of my terms on one of the field pages to prevent accidental deletion. 
-    - As a registered user, I want to be able to reverse the editing of one of my terms via my profile page.
+    - As a registered/logged in user, I want to be able to add new terms with their respective definition to add to the collection of important terms in the field.
+    - As a registered/logged in user, I want to be able to edit my previous added definition of terms to improve the quality of the site.
+    - As a registered/logged in user, I want to be able to delete certain terms to ensure updated relevancy of the collection of terms.
+    - As a registered/logged in user, I want to have my own page where I can see an overview of all the terms that I added in alphabetical order.
+    - As a registered/logged in user, I want to get a confirmation message before editing or deleting one of my terms on one of the field pages to prevent accidental deletion. 
+    - As a registered/logged in user, I want to be able to reverse the editing of one of my terms via my profile page.
  
 ----
 ## Design choices
@@ -128,7 +128,39 @@ All wireframes can be found <a href="" target="_blank">here</a>.
 ## Testing User Stories
 The most common path through the website for an anonymous user will be the Homepage and then search for a particular term via the search bar or scrolling down. The separate field pages were added to have a collection of terms in a particular field attainable using only one click, since the index for the search bar is based on the term name and term definition. Another frequent path would be from Homepage to the Register page.
 
-1.a As an anonymous user, I want to easily understand the main purpose of the site and to scroll through all terms.
+1. As an anonymous user:
+* I want to easily understand the main purpose of the site and to scroll through all terms to get a quick overview.
+
+    i. When I land on any page I will see the logo which clearly mentions glossary of certain fields. The navbar contains three particular fields showing the focus fields of the site. 
+    ii. The big header on the homepage show terms are the main focus of this site.
+    iii. On the homepage I am able to scroll quickly down to get an overview of all the terms and if wanted I can check the definition as well.
+
+* I want to easily navigate through the application to find and read terms relating to a specific field to have a focused elaborate search.
+
+    i. No matter what page the user lands on, they can easily find and use the navigation bar.
+    ii. To easily get an overview of all terms of a specific field, the field specific page is just one click away via the navbar. 
+
+* I want to be able to quickly search for a term to see if that term exists on this site to learn the meaning of it.
+
+    i. On the homepage, at the top, a search bar is presented for the user to search for any term they want.
+    ii. On the homepage, the user can also scroll through the existing terms, ordered alphabetically, to see if a particular term is there or perhaps find a new term to learn even more.
+
+* I want to receive feedback that a term I searched for does not exist on this site and then to easily return to the homepage with all terms to attain good user experience.
+
+    i. A flash message appears with the text "No Results Found" when a term does not exist in the name or in the definition.
+    ii. To return to the homepage with all terms displaying, you only have to click the reset button to reset your search. 
+
+* After I searched for a term that exists, I want to easily see all results so that I can also scroll through the terms available to learn even more. 
+
+    i. When I search for a term, all terms or definitions that contain that term are displayed as the search result.
+    ii. The terms are collapsible to have a quick overview of all terms, and with one click you can read the definition as well to learn more than only the specific term I searched for. 
+
+* I want to easily navigate back to the homepage if I end up at the 404 error page to not get lost.
+
+    i. Once I am on the custom error page, there is a button which says "Return to homepage" and redirects the user back to the homepage with all terms.
+
+2. As a registered/logged in user:
+* 
 
 ## Further testing
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox. 
