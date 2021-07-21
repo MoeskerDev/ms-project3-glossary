@@ -8,7 +8,7 @@ View the live project <a href="" target="_blank">here</a>
 ## Project Goals
 Creating an open jargon glossary for three growing fields in IT: Cyber Security, Data Analytics and Web Development. The idea is that visitors can find and share definitions by reading, creating, editing and deleting terms and definitions. The target audience is anyone who is interested, but more focused will be for newbies in these fields and even the more experienced since they can share there knowdledge with the newbies. At the same time, newbies can add new terms as well while they learn and come across certain terms often.
 
-The final goal is to publish a book including the collection of good definitions for all three fields and in addition, a word cloud.
+The final goal is to publish a book including the collection of good definitions for all three fields.
 
 ----
 ## User Stories
@@ -135,72 +135,74 @@ The most common path through the website for an anonymous user will be the Homep
 1. As an anonymous user:
 * I want to easily understand the main purpose of the site and to scroll through all terms to get a quick overview.
 
-    i. When I land on any page I will see the logo which clearly mentions glossary of certain fields. The navbar contains three particular fields showing the focus fields of the site. 
-    ii. The big header on the homepage show terms are the main focus of this site.
-    iii. On the homepage I am able to scroll quickly down to get an overview of all the terms and if wanted I can check the definition as well.
+    - When I land on any page I will see the logo which clearly mentions glossary of certain fields. The navbar contains three particular fields showing the focus fields of the site. 
+    - The big header on the homepage show terms are the main focus of this site.
+    - On the homepage I am able to scroll quickly down to get an overview of all the terms and if wanted I can check the definition as well.
 
 * I want to easily navigate through the application to find and read terms relating to a specific field to have a focused elaborate search.
 
-    i. No matter what page the user lands on, they can easily find and use the navigation bar.
-    ii. To easily get an overview of all terms of a specific field, the field specific page is just one click away via the navbar. 
+    - No matter what page the user lands on, they can easily find and use the navigation bar.
+    - To easily get an overview of all terms of a specific field, the field specific page is just one click away via the navbar. 
 
 * I want to be able to quickly search for a term to see if that term exists on this site to learn the meaning of it.
 
-    i. On the homepage, at the top, a search bar is presented for the user to search for any term they want.
-    ii. On the homepage, the user can also scroll through the existing terms, ordered alphabetically, to see if a particular term is there or perhaps find a new term to learn even more.
+    - On the homepage, at the top, a search bar is presented for the user to search for any term they want.
+    - On the homepage, the user can also scroll through the existing terms, ordered alphabetically, to see if a particular term is there or perhaps find a new term to learn even more.
 
 * I want to receive feedback that a term I searched for does not exist on this site and then to easily return to the homepage with all terms to attain good user experience.
 
-    i. A flash message appears with the text "No Results Found" when a term does not exist in the name or in the definition.
-    ii. To return to the homepage with all terms displaying, you only have to click the reset button to reset your search. 
+    - A flash message appears with the text "No Results Found" when a term does not exist in the name or in the definition.
+    - To return to the homepage with all terms displaying, you only have to click the reset button to reset your search. 
 
 * After I searched for a term that exists, I want to easily see all results so that I can also scroll through the terms available to learn even more. 
 
-    i. When I search for a term, all terms or definitions that contain that term are displayed as the search result.
-    ii. The terms are collapsible to have a quick overview of all terms, and with one click you can read the definition as well to learn more than only the specific term I searched for. 
+    - When I search for a term, all terms or definitions that contain that term are displayed as the search result.
+    - The terms are collapsible to have a quick overview of all terms, and with one click you can read the definition as well to learn more than only the specific term I searched for. 
 
 * I want to easily navigate back to the homepage if I end up at the 404 error page to not get lost.
 
-    i. Once I am on the custom error page, there is a button below the error message which says "Return to homepage" and redirects the user back to the homepage with all terms. 
-    ii. Another option would be to use the navbar, either click home or glossary frow fields.
+    - Once I am on the custom error page, there is a button below the error message which says "Return to homepage" and redirects the user back to the homepage with all terms. 
+    - Another option would be to use the navbar, either click home or glossary frow fields.
 
 The most common path for a registered user is from the homepage to the login page which leads to the profile page (from now on logged in user). From there you can either delete a term which then takes you back to the homepage or you edit a term which leads to the edit term page. By cancelling the edit term you go back to the homepage. By editing a term, you stay on the edit term page to see your changes. Another frequent path from the profile page could be the add term page. Once you have added a term you are redirected to the homepage with all terms, including your newly added term. 
 
 2. As a registered/logged in user:
 * I want to be able to add new terms with their respective definition to add to the collection of important terms in the field.
 
-    i. Starting on the profile page, one click on the add term link in the navbar and you are guided to the add term form 
-    ii. Via the form you can choose one of the fields via dropdown menu and type the term name and definition.
-    iii. The add term button adds your new term and definition to the database and redirects you to the homepage where the new term can be found, as well as on your own profile page.
+    - Starting on the profile page, one click on the add term link in the navbar and you are guided to the add term form 
+    - Via the form you can choose one of the fields via dropdown menu and type the term name and definition.
+    - The add term button adds your new term and definition to the database and redirects you to the homepage where the new term can be found, as well as on your own profile page.
 
 * I want to get a confirmation message before editing or deleting one of my terms on one of the field pages to prevent accidental deletion. 
 
-    i. The edit and delete button on all pages request the user for a confirmation if they really want to edit or delete the term.
+    - The edit and delete button on all pages request the user for a confirmation if they really want to edit or delete the term.
 
 * I want to be able to easily edit my previous added definition of terms to improve the quality of the site.
 
-    i. No matter which page you can find your term; homepage, profile page or one of the field pages, you are able to edit it with the edit button.
-    ii. Confirm that you want to edit your term and you are redirected to a filled out edit term form.
-    iii. Change what you want to change and click the edit term button which creates a feedback message and your changes are changed. 
+    - No matter which page you can find your term; homepage, profile page or one of the field pages, you are able to edit it with the edit button.
+    - Confirm that you want to edit your term and you are redirected to a filled out edit term form.
+    - Change what you want to change and click the edit term button which creates a feedback message and your changes are changed. 
 
 * I want to be able to easily delete certain terms to ensure updated relevancy of the collection of terms.
 
-    i. Everywhere you term is shown, you are able to click the delete button.
-    ii. Confirm you really want to delete this term and the term with definition is removed, redirecting you to the homepage with all current terms.
+    - Everywhere you term is shown, you are able to click the delete button.
+    - Confirm you really want to delete this term and the term with definition is removed, redirecting you to the homepage with all current terms.
 
 * I want to have my own page where I can see an overview of all the terms that I added in alphabetical order to see my contribution to the site.
 
-    i. Once you are registered you are redirected to the profile page with a message saying that you have not added any terms yet.
-    ii. Once you are logged in and have added terms before, you are also redirected to you profile page which lists, in alphabetical order the collapsible terms that you have created and added to the site.
+    - Once you are registered you are redirected to the profile page with a message saying that you have not added any terms yet.
+    - Once you are logged in and have added terms before, you are also redirected to you profile page which lists, in alphabetical order the collapsible terms that you have created and added to the site.
 
 * I want to be able to cancel the editing of one of my terms before I saved it to not (accidently) lose a good part of the definition.
 
-    i. After clicking on the edit button of one of the terms you created, confirmed your choice and are on the edit term form, you can click on the cancel edit button to undo your changes.
-    ii. It leads you back to the homepage where you can still decide to edit the term by searching for it there or leave it and perhaps edit it at a later moment. 
+    - After clicking on the edit button of one of the terms you created, confirmed your choice and are on the edit term form, you can click on the cancel edit button to undo your changes.
+    - It leads you back to the homepage where you can still decide to edit the term by searching for it there or leave it and perhaps edit it at a later moment. 
 
 ## Further testing
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox. 
 - The website was viewed on several devices, Laptop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, Iphone 5/SE, Iphone 6/7/8, Iphone 6/7/8 Plus, Iphone x, Ipad, Ipad Pro, Surface Duo and Galaxy Fold. 
+- The Lighthouse report for mobile can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/lighthouse_mobile_final.png).
+- The Lighthouse report for desktop can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/lighthouse_desktop_final.png).
 ## Known Bugs
 - 280x653: still issues with line height header, search field, their buttons and sidenav logo.
 - edit term page buttons are not positioned side by side correctly in Ipad and some mobile views.
@@ -294,7 +296,8 @@ git clone https://github.com/USERNAME/REPOSITORY
 - <a href="https://devsdata.com/big-data-terms-every-manager-should-know/" target="_blank">Data Analytics</a>
 - <a href="https://www.globalknowledge.com/us-en/topics/cybersecurity/glossary-of-terms/#gref" target="_blank">Cyber Security</a>
 2. I had a look at the <a href="https://github.com/Code-Institute-Solutions/SampleREADME" target="_blank">sample READme</a> of CI.
-3. In order to create the mockups I used this [website](http://ami.responsivedesign.is)
+3. In order to create the mockups I used this [website](http://ami.responsivedesign.is).
+4. To create images from screenshots I used [Paste Pics](https://paste.pics/).
 ## Acknowledgements
 - A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for.
 - And thanks to my mentor for pushing me to learn more!
