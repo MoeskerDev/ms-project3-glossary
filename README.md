@@ -291,6 +291,7 @@ git clone https://github.com/USERNAME/REPOSITORY
 - <a href="https://devsdata.com/big-data-terms-every-manager-should-know/" target="_blank">Data Analytics</a>
 - <a href="https://www.globalknowledge.com/us-en/topics/cybersecurity/glossary-of-terms/#gref" target="_blank">Cyber Security</a>
 2. I had a look at the <a href="https://github.com/Code-Institute-Solutions/SampleREADME" target="_blank">sample READme</a> of CI.
+3. In order to create the mockups I used this [website](http://ami.responsivedesign.is)
 ## Acknowledgements
 - A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for.
 - And thanks to my mentor for pushing me to learn more!
