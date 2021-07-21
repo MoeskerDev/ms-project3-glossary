@@ -44,11 +44,11 @@ a.edit, a.delete, a.account {
 /*-----
 // Medium devices (Ipad, 768px)
 -----*/
-@media screen and (width: 768px) {
+@media screen and (width: 768px) { 
     div.collapsible-body {
         padding-bottom: 0px;
     }
-
+/*------------cards-----------*/ 
     div.card-content.white-text {
         padding-bottom: 10px;
     }
@@ -56,7 +56,7 @@ a.edit, a.delete, a.account {
     div.card-action {
         padding-top: 0px;
     }
-     
+/*------------buttons-----------*/     
     button.btn.teal.darken-1 {
         margin-top: 10px;
     }
@@ -69,14 +69,14 @@ a.edit, a.delete, a.account {
 // Small devices (Mobile, 414px)
 -----*/
 @media screen and (width: 414px) {
-    button.btn.teal.darken-1 {
-        margin-top: 10px;
-    }
-
     h3.teal.white-text.center-align, .flashes h4, h3 {
         line-height: 1.5;
         margin-top: 16px;
     } 
+/*------------buttons-----------*/     
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
+    }
 
     #edit_term {
         margin-top: 0px;
@@ -86,13 +86,13 @@ a.edit, a.delete, a.account {
 // Small devices (Mobile, 411px)
 -----*/
 @media screen and (width: 411px) {
-    button.btn.teal.darken-1 {
-        margin-top: 10px;
-    }
-
     h3.teal.white-text.center-align, .flashes h4, h3 {
         line-height: 1.5;
         margin-top: 16px;
+    }
+/*------------buttons-----------*/     
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
     }
 
     #edit_term {
@@ -103,10 +103,6 @@ a.edit, a.delete, a.account {
 // Small devices (Mobile, 375px)
 -----*/
 @media screen and (width: 375px) {
-    button.btn.teal.darken-1 {
-        margin-top: 10px;
-    }
-
     div.collapsible-body.white-text {
         padding-bottom: 0px;
     }
@@ -114,6 +110,10 @@ a.edit, a.delete, a.account {
     h3.teal.white-text.center-align, .flashes h4, h3 {
         line-height: 1.5;
         margin-top: 16px;
+    }
+/*------------buttons-----------*/      
+    button.btn.teal.darken-1 {
+        margin-top: 10px;
     }
 
     #edit_term {
@@ -124,15 +124,15 @@ a.edit, a.delete, a.account {
 // Small devices (Mobile, 360px)
 -----*/
 @media screen and (width: 360px) {
+    h3.teal.white-text.center-align, .flashes h4, h3 {
+        line-height: 1.5;
+        margin-top: 16px;
+    }
+/*------------buttons-----------*/ 
     button.btn.teal.darken-1 {
         margin-top: 10px;
         padding-left: 10px;
         padding-right: 10px;
-    }
-
-    h3.teal.white-text.center-align, .flashes h4, h3 {
-        line-height: 1.5;
-        margin-top: 16px;
     }
 
     #edit_term {
@@ -161,10 +161,9 @@ a.edit, a.delete, a.account {
 // Small devices (Mobile, 280px)
 -----*/                    
 @media screen and (width: 280px) {
-    button.btn.teal.darken-1 {
-        margin-top: 5px;
-        padding-right: 4px;
-        padding-left: 4px;
+    h3.teal.white-text.center-align, .flashes h4, h3 {
+        line-height: 1.5;
+        margin-top: 16px;
     }
  
     i.fas.fa-search.left {
@@ -180,10 +179,11 @@ a.edit, a.delete, a.account {
     input#query.validate.invalid {
     margin-left: 0px;
     }
-
-    h3.teal.white-text.center-align, .flashes h4, h3 {
-        line-height: 1.5;
-        margin-top: 16px;
+/*------------buttons-----------*/ 
+    button.btn.teal.darken-1 {
+        margin-top: 5px;
+        padding-right: 4px;
+        padding-left: 4px;
     }
 
     #edit_term {
