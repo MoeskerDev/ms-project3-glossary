@@ -202,7 +202,7 @@ The most common path for a registered user is from the homepage to the login pag
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox. 
 - The website was viewed on several devices, Laptop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, Iphone 5/SE, Iphone 6/7/8, Iphone 6/7/8 Plus, Iphone x, Ipad, Ipad Pro, Surface Duo and Galaxy Fold. 
 - The Lighthouse report for mobile can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/lighthouse_mobile_final.png).
-- The Lighthouse report for desktop can be found [here]().
+- The Lighthouse report for desktop can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/lighthouse_desktop_final.png).
 ## Known Bugs
 - 280x653: still issues with line height header, search field, their buttons and sidenav logo.
 - edit term page buttons are not positioned side by side correctly in Ipad and some mobile views.
