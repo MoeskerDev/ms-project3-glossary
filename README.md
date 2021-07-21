@@ -297,7 +297,7 @@ git clone https://github.com/USERNAME/REPOSITORY
 - <a href="https://www.globalknowledge.com/us-en/topics/cybersecurity/glossary-of-terms/#gref" target="_blank">Cyber Security</a>
 2. I had a look at the <a href="https://github.com/Code-Institute-Solutions/SampleREADME" target="_blank">sample READme</a> of CI.
 3. In order to create the mockups I used this [website](http://ami.responsivedesign.is).
-4. To create images from screenshot I used [Paste Pics](https://paste.pics/).
+4. To create images from screenshots I used [Paste Pics](https://paste.pics/).
 ## Acknowledgements
 - A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for.
 - And thanks to my mentor for pushing me to learn more!
