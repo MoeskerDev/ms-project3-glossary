@@ -1,9 +1,9 @@
                                         Glossary Growing Fields
 View the live project <a href="" target="_blank">here</a>
 
-[Mockup home](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/home_mockup.png)
-[Mockup field](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/field_mockup.png)
-[Mockup error](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/error_mockup.png)
+![Mockup home](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/home_mockup.png)
+![Mockup field](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/field_mockup.png)
+![Mockup error](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/error_mockup.png)
 # UX
 ## Project Goals
 Creating an open jargon glossary for three growing fields in IT: Cyber Security, Data Analytics and Web Development. The idea is that visitors can find and share definitions by reading, creating, editing and deleting terms and definitions. The target audience is anyone who is interested, but more focused will be for newbies in these fields and even the more experienced since they can share there knowdledge with the newbies. At the same time, newbies can add new terms as well while they learn and come across certain terms often.
@@ -294,7 +294,8 @@ git clone https://github.com/USERNAME/REPOSITORY
 - <a href="https://devsdata.com/big-data-terms-every-manager-should-know/" target="_blank">Data Analytics</a>
 - <a href="https://www.globalknowledge.com/us-en/topics/cybersecurity/glossary-of-terms/#gref" target="_blank">Cyber Security</a>
 2. I had a look at the <a href="https://github.com/Code-Institute-Solutions/SampleREADME" target="_blank">sample READme</a> of CI.
-3. In order to create the mockups I used this [website](http://ami.responsivedesign.is)
+3. In order to create the mockups I used this [website](http://ami.responsivedesign.is).
+4. To create images from screenshot I used [Paste Pics](https://paste.pics/).
 ## Acknowledgements
 - A big thanks to tutor support, in particular Igor and Jo, who took the time to help me when needed. They both were very good at explaining and teaching more than the question asked for.
 - And thanks to my mentor for pushing me to learn more!
