@@ -56,7 +56,7 @@ In essence, the idea was to keep it clean, but still play with a few colours. Th
 ----
 ## Wireframes
 
-All wireframes can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/documents/milestone-project-3-wireframes.pdf).
+All wireframes can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/tree/main/static/css/images/wireframes).
 
 ----
 # Features
