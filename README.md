@@ -1,5 +1,5 @@
                                         Glossary Grow Fields
-View the live project <a href="" target="_blank">here</a>
+View the live project <a href="https://flask-glossary-grow-fields.herokuapp.com/" target="_blank">here</a>
 
 ![Mockup home](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/home_mockup.png)
 ![Mockup field](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/field_mockup.png)
