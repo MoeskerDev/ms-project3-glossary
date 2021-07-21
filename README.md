@@ -1,4 +1,4 @@
-                                        Glossary Growing Fields
+                                        Glossary Grow Fields
 View the live project <a href="" target="_blank">here</a>
 
 ![Mockup home](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/home_mockup.png)
@@ -56,7 +56,7 @@ In essence, the idea was to keep it clean, but still play with a few colours. Th
 ----
 ## Wireframes
 
-All wireframes can be found <a href="" target="_blank">here</a>.
+All wireframes can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/documents/milestone-project-3-wireframes.pdf).
 
 ----
 # Features
@@ -204,8 +204,7 @@ The most common path for a registered user is from the homepage to the login pag
 - The Lighthouse report for mobile can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/lighthouse_mobile_final.png).
 - The Lighthouse report for desktop can be found [here](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/lighthouse_desktop_final.png).
 ## Known Bugs
-- 280x653: still issues with line height header, search field, their buttons and sidenav logo.
-- edit term page buttons are not positioned side by side correctly in Ipad and some mobile views.
+- 280x653: still issues with line height header, search field, their buttons, sidenav logo and edit term space between buttons.
 ## Fixed Bugs
 - Issue: in mobile view my register and login button were not placed in the center of the form.
     - Fix: first I tried to fix this with additional css, but this was not successful. Perhaps due to Materialize. However, removing the offset-m2 class in my html and converting it to a percentage in css worked just fine. 
@@ -289,7 +288,9 @@ git clone https://github.com/USERNAME/REPOSITORY
 2. The custom validation Javascript for the dropdown in the add term form came from the mini-project and I copied it all.
 3. The other Javascript/jQuery code came from the [Materialize](https://materializecss.com/collapsible.html) website.
 4. The login_required function and everyting related, like import and using it on functions, came from [here](https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/#login-required-decorator).
-5. As part of the refactoring three functions into one, my mentor taught me something new with changing the url as well. 
+5. As part of the refactoring three functions into one, my mentor taught me something new with changing the url as well.
+6. My onclick confirm code came from [here](https://newbedev.com/javascript-onclick-return-confirm-code-example).
+ 
 ## Content
 1. The terms that were inserted came from the following three pages:
 - <a href="https://careerfoundry.com/en/blog/web-development/50-web-development-buzzwords-that-all-new-programmers-should-learn/" target="_blank">Web Development</a>
