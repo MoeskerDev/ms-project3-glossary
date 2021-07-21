@@ -289,7 +289,9 @@ git clone https://github.com/USERNAME/REPOSITORY
 2. The custom validation Javascript for the dropdown in the add term form came from the mini-project and I copied it all.
 3. The other Javascript/jQuery code came from the [Materialize](https://materializecss.com/collapsible.html) website.
 4. The login_required function and everyting related, like import and using it on functions, came from [here](https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/#login-required-decorator).
-5. As part of the refactoring three functions into one, my mentor taught me something new with changing the url as well. 
+5. As part of the refactoring three functions into one, my mentor taught me something new with changing the url as well.
+6. My onclick confirm code came from [here](https://newbedev.com/javascript-onclick-return-confirm-code-example).
+ 
 ## Content
 1. The terms that were inserted came from the following three pages:
 - <a href="https://careerfoundry.com/en/blog/web-development/50-web-development-buzzwords-that-all-new-programmers-should-learn/" target="_blank">Web Development</a>
