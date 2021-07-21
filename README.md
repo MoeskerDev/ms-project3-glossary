@@ -1,4 +1,4 @@
-                                        Glossary Growing Fields
+                                        Glossary Grow Fields
 View the live project <a href="" target="_blank">here</a>
 
 ![Mockup home](https://github.com/MoeskerDev/ms-project3-glossary/blob/main/static/css/images/home_mockup.png)
